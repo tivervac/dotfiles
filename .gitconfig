@@ -1,0 +1,20 @@
+[user]
+    name = Titouan Vervack
+    email = Titouan.Vervack@UGent.be
+[color]
+  ui = true
+[core]
+  editor = vim
+[alias]
+  co = checkout
+  unstage = reset HEAD --
+        l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        c = commit
+        pu = pull
+        p = push
+        s = status
+        d = diff
+        a = add -A
+        ch = checkout
+[credential]
+	helper = cache --timeout=3600
