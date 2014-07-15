@@ -17,6 +17,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
 
+Bundle 'sickill/vim-monokai'
 Bundle 'nginx.vim'
 Bundle 'jayferd/ragel.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
