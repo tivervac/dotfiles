@@ -1,7 +1,7 @@
 " Bundles {{{
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -17,6 +17,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
 
+Bundle 'sickill/vim-monokai'
 Bundle 'nginx.vim'
 Bundle 'jayferd/ragel.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
