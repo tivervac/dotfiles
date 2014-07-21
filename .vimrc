@@ -7,12 +7,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fugitive.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'tpope/vim-commentary'
-Bundle 'altercation/vim-colors-solarized'
 
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
@@ -74,10 +72,6 @@ set autoread " auto reload file on change
 set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
 " Colorscheme {{{
-let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
-let g:solarized_underline=0
-let g:solarized_termtrans=0
 set t_Co=256
 syntax enable
 colorscheme monokai
