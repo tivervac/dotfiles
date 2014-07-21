@@ -23,7 +23,6 @@ Bundle 'jayferd/ragel.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 filetype plugin indent on
 " }}}
