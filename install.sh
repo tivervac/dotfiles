@@ -7,9 +7,11 @@ cp -R .scripts ~
 cp -R .zsh ~
 
 echo "Creating links..."
-ln -s .gitconfig ~
-ln -s .vimrc ~
-ln -s .zshrc ~
+cp .gitconfig ~
+cp .vimrc ~
+cp .zshrc ~
+cp .xinitrc ~
+cp .Xresources ~
 
 echo "Setting up vim environment..."
 mkdir ~/.vim

@@ -15,7 +15,6 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 export LANG='en_US.UTF-8'
-#export LC_ALL='nl_BE.UTF-8'
 
 autoload colors
 colors
@@ -23,7 +22,7 @@ colors
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
 source $HOME/.scripts/.mancolor.sh
-PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status) %(?.✔.✗)  '
+PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
 export ANDROID_HOME="/usr/local/android-studio/sdk"
 export JAVA_HOME="/usr/local/lib/jdk1.8.0_05"
 export GENY_HOME="/usr/local/genymotion"
@@ -36,12 +35,10 @@ alias l='ls -al'
 alias lgrep="grep -nri"
 alias open="xdg-open"
 alias g="git"
-alias install="sudo apt-get install"
-alias remove="sudo apt-get remove --purge"
-alias autoremove="sudo apt-get autoremove"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
-alias poweroff="sudo poweroff"
+alias install="sudo pacman -S"
+alias remove="sudo pacman -Rs"
+alias upgrade="sudo pacman -Syu"
+alias poweroff="sudo shutdown"
 alias reboot="sudo reboot"
 alias targz="tar -xvzf"
 alias geny="sudo $GENY_HOME/genymotion &"
