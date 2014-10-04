@@ -42,6 +42,8 @@ function update_current_git_vars() {
     _GIT_STATUS=`python ${gitstatus}`
     __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
     GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
+    # Get rid of the b'...'
+    GIT_BRANCH=$(echo $GIT_BRANCH | sed 's/^b.\(.*\).$/\1/')
     GIT_REMOTE=$__CURRENT_GIT_STATUS[2]
     GIT_STAGED=$__CURRENT_GIT_STATUS[3]
     GIT_CONFLICTS=$__CURRENT_GIT_STATUS[4]
