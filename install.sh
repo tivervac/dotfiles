@@ -12,6 +12,7 @@ cp .vimrc ~
 cp .zshrc ~
 cp .xinitrc ~
 cp .Xresources ~
+cp i3status.conf /etc/
 
 echo "Setting up vim environment..."
 mkdir ~/.vim

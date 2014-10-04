@@ -16,4 +16,9 @@ xset -b
 if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
+
+# Synchronize the two xorg buffers
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
 exec i3
