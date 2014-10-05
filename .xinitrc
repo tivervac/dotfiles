@@ -23,4 +23,6 @@ autocutsel -selection PRIMARY -fork &
 
 sudo hdparm -S 1 /dev/sdb
 
+
+feh --bg-scale ~/.wallpaper/totoro.png
 exec i3
