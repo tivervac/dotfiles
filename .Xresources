@@ -20,11 +20,9 @@ Xft.hintstyle: hintslight
 URxvt.geometry: 90x24
 
 ! Scrollbar
-URxvt.scrollBar: false
-
-! Don`t remember history. (Tmux will fix this.)
-URxvt.saveLines: 0
-
+URxvt.scrollstyle: plain
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #2d2d2d
 ! Padding
 URxvt.internalBorder: 3
 
