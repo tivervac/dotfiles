@@ -19,6 +19,12 @@ export LANG='en_US.UTF-8'
 autoload colors
 colors
 
+typeset -A key
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
+[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
+
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
 source $HOME/.scripts/.mancolor.sh
