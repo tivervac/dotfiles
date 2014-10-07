@@ -1,0 +1,10 @@
+{ 
+   "Cinnamon theme": {
+   "name": "+1", 
+   "author": "nale12", 
+   "version": "1.6",
+   "type":   "custom",
+   "thumbnail": "thumbnail.png", 
+   "url": "" 
+    }
+}

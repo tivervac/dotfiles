@@ -6,7 +6,7 @@ echo "Copying files..."
 cp -R .scripts ~
 cp -R .zsh ~
 cp -R .wallpaper ~
-
+cp -R +1 /usr/share/themes
 echo "Creating links..."
 cp .gitconfig ~
 cp .vimrc ~
