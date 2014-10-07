@@ -6,7 +6,13 @@ echo "Copying files..."
 cp -R .scripts ~
 cp -R .zsh ~
 cp -R .wallpaper ~
+# The GTK theme
 cp -R +1 /usr/share/themes
+# Shutdown the nvidia card properly
+cp nvidia-enable.service /etc/systemd/system
+systemctl enable nvidia-enable.service
+systemctl start nvidia-enable.service
+
 echo "Creating links..."
 cp .gitconfig ~
 cp .vimrc ~
