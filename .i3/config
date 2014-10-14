@@ -90,6 +90,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# take a screenshot
+bindsym Mod1+Shift+4 exec "shutter -s"
+
 # focus the parent container
 bindsym $mod+a focus parent
 
