@@ -11,6 +11,8 @@ cp -R +1 /usr/share/themes
 # Shutdown the nvidia card properly
 cp nvidia-enable.service /etc/systemd/system
 systemctl enable nvidia-enable.service
+# Pretty pacman
+cp pacman.conf /etc/pacman.conf
 
 echo "Creating links..."
 cp .gitconfig ~
