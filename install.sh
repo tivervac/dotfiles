@@ -7,13 +7,13 @@ cp -R .scripts ~
 cp -R .zsh ~
 cp -R .wallpaper ~
 # The GTK theme
-cp -R +1 /usr/share/themes
+cp -R +1 /usr/share/themes/
 # Shutdown the nvidia card properly
-cp nvidia-enable.service /etc/systemd/system
+cp nvidia-enable.service /etc/systemd/system/
 systemctl enable nvidia-enable.service
 # Pretty pacman
-cp pacman.conf /etc/pacman.conf
-
+cp pacman.conf /etc/
+cp xorg.cong /etc/X11/
 echo "Creating links..."
 cp .gitconfig ~
 cp .vimrc ~
