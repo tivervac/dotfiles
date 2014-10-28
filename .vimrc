@@ -17,7 +17,7 @@ Bundle 'ujihisa/neco-ghc'
 
 " Bundle 'sickill/vim-monokai'
 " Bundle 'vim-scripts/rdark'
-Bundle 'adlawson/vim-sorcerer'
+Bundle 'FlashYoshi/vim-sorcerer'
 Bundle 'nginx.vim'
 Bundle 'jayferd/ragel.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -53,7 +53,7 @@ let g:haddock_browser="open"
 " }}}
 " General options {{{
 set number
-set ruler
+ set ruler
 syntax on
 set autoindent
 set smartindent
@@ -203,7 +203,6 @@ augroup ft_python
   au!
 
   au FileType python setlocal ts=4 sw=4 sts=4
-  au FileType python setlocal wrap wrapmargin=4 textwidth=120 colorcolumn=+1
 
 augroup END
 " }}}
