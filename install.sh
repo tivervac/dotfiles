@@ -21,6 +21,7 @@ cp .zshrc ~
 cp .xinitrc ~
 cp .Xresources ~
 cp i3status.conf /etc/
+cp slim.cong /etc/
 
 echo "Setting up Vundle..."
 if [[ ! -d ~/.vim/bundle/vundle ]]; then
