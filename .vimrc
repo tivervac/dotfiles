@@ -15,9 +15,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'ujihisa/neco-ghc'
 
-" Bundle 'sickill/vim-monokai'
-" Bundle 'vim-scripts/rdark'
-Bundle 'FlashYoshi/vim-sorcerer'
+Bundle 'FlashYoshi/bubblegum'
 Bundle 'nginx.vim'
 Bundle 'jayferd/ragel.vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -76,7 +74,7 @@ set scrolloff=8 "keep 8 lines below/above cursor
 " Colorscheme {{{
 set t_Co=256
 syntax enable
-colorscheme sorcerer
+colorscheme bubblegum
 " }}}
 " Wrapping {{{
 set nowrap
