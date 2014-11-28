@@ -298,5 +298,16 @@ nnoremap <leader>bc :call PipeToBc()<CR>
 :noh
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 inoremap çà <esc>
+
+" Clipboard
+if has ('unnamedplus')
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+end
+
+"Write with sudo
+cmap w!! w !sudo tee % > /dev/null
+
 " Fix for realtime gitgutter
 ":GitGutterDisable

@@ -17,10 +17,6 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
-# Synchronize the two xorg buffers
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
-
 sudo hdparm -S 1 /dev/sdb
 
 
