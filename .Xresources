@@ -27,8 +27,6 @@ URxvt.scrollColor: #2d2d2d
 ! Padding
 
 URxvt.internalBorder: 3
-! Noone likes rxvt-unicode-256color
-urxvt.termName: xterm
 
 ! Fonts
 URxvt*font: xft:Monospace:size=8
