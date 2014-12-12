@@ -22,6 +22,7 @@ cp .xinitrc ~
 cp .Xresources ~
 cp i3status.conf /etc/
 cp slim.conf /etc/
+cp clipboard /usr/lib/urxvt/perl/clipboard
 
 echo "Setting up Vundle..."
 if [[ ! -d ~/.vim/bundle/vundle ]]; then

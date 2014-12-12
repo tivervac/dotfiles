@@ -24,8 +24,9 @@ URxvt.scrollstyle: plain
 URxvt.scrollBar_right: true
 URxvt.scrollColor: #2d2d2d
 
-! Padding
+URxvt.keysym.C-Insert: perl:clipboard:copy
 
+! Padding
 URxvt.internalBorder: 3
 
 ! Fonts
@@ -33,7 +34,7 @@ URxvt*font: xft:Monospace:size=8
 URxvt*letterSpace: -2
 
 ! Perl extensions: URLs
-URxvt.perl-ext-common: matcher
+URxvt.perl-ext-common: matcher,clipboard
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
