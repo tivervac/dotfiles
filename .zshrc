@@ -29,7 +29,7 @@ key[Delete]=${terminfo[kdch1]}
 
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
-source $HOME/.scripts/.mancolor.sh
+source $HOME/.scripts/mancolor.sh
 PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
 export ANDROID_HOME="/usr/local/android-studio/sdk"
 export JAVA_HOME="/usr/local/lib/jdk1.8.0_05"

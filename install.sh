@@ -6,6 +6,7 @@ echo "Copying files..."
 cp -R .scripts ~
 cp -R .zsh ~
 cp -R .wallpaper ~
+cp -R .i3 ~
 # The GTK theme
 cp -R +1 /usr/share/themes/
 # Shutdown the nvidia card properly
@@ -20,7 +21,6 @@ cp .vimrc ~
 cp .zshrc ~
 cp .xinitrc ~
 cp .Xresources ~
-cp i3status.conf /etc/
 cp slim.conf /etc/
 cp clipboard /usr/lib/urxvt/perl/clipboard
 
