@@ -23,6 +23,9 @@ cp .xinitrc ~
 cp .Xresources ~
 cp slim.conf /etc/
 cp clipboard /usr/lib/urxvt/perl/clipboard
+# Start urxvt daemon
+cp urxvtd.service /etc/systemd/system/
+systemctl enable urxvtd.service
 
 echo "Setting up Vundle..."
 if [[ ! -d ~/.vim/bundle/vundle ]]; then

@@ -27,7 +27,7 @@ font pango:inconsolata medium 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
