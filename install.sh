@@ -8,10 +8,10 @@ cp -R .zsh ~
 cp -R .wallpaper ~
 cp -R .i3 ~
 # The GTK theme
-cp -R +1 /usr/share/themes/
+sudo cp -R +1 /usr/share/themes/
 # Shutdown the nvidia card properly
-cp nvidia-enable.service /etc/systemd/system/
-systemctl enable nvidia-enable.service
+sudo cp nvidia-enable.service /etc/systemd/system/
+sudo systemctl enable nvidia-enable.service
 # Pretty pacman
 cp pacman.conf /etc/
 cp xorg.cong /etc/X11/
@@ -21,11 +21,11 @@ cp .vimrc ~
 cp .zshrc ~
 cp .xinitrc ~
 cp .Xresources ~
-cp slim.conf /etc/
-cp clipboard /usr/lib/urxvt/perl/clipboard
+sudo cp slim.conf /etc/
+sudo cp clipboard /usr/lib/urxvt/perl/clipboard
 # Start urxvt daemon
-cp urxvtd.service /etc/systemd/system/
-systemctl enable urxvtd.service
+sudo cp urxvtd.service /etc/systemd/system/
+sudo systemctl enable urxvtd.service
 
 echo "Setting up Vundle..."
 if [[ ! -d ~/.vim/bundle/vundle ]]; then
