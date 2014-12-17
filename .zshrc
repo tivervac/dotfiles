@@ -40,7 +40,6 @@ export EDITOR=vim
 alias ls='ls --color'
 
 alias l='ls -al'
-alias lgrep="grep -nri"
 alias open="xdg-open"
 alias g="git"
 alias install="sudo pacman -S"
@@ -51,6 +50,5 @@ alias reboot="sudo reboot"
 alias targz="tar -xvzf"
 alias geny="sudo $GENY_HOME/genymotion &"
 alias diskusage="df -h"
-alias dirsize="~/.scripts/dirsize"
 alias hddsleep="sudo hdparm -S 1 /dev/sdb"
 alias copypasta="xclip -sel clip <"

@@ -90,7 +90,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # take a screenshot
-bindsym Mod1+Shift+4 exec "shutter -s"
+bindsym --release Mod1+Shift+4 exec "scrot -s ~/Pictures/'%Y-%m-%d_$wx$h.png'"
 
 # focus the parent container
 bindsym $mod+a focus parent
