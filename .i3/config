@@ -90,7 +90,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # take a screenshot
-bindsym --release Mod1+Shift+4 exec "scrot -s ~/Pictures/'%Y-%m-%d_$wx$h.png'"
+bindsym --release Mod1+Shift+4 exec "~/.scripts/push.sh -s"
+bindsym Mod1+Shift+5 exec "~/.scripts/push.sh"
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -188,3 +189,5 @@ client.focused_inactive #54A7FF #000000 #888888 #484e50
 client.unfocused        #2d2d2d #262626 #888888 #292d2e
 client.urgent           #FC7779 #FC7779 #E1FAF2 #FC7779
 
+# Notifications
+exec --no-startup-id dunst
