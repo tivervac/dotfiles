@@ -1,5 +1,6 @@
 #!/bin/bash
-# Thanks to noctua
+# Thanks to noctua for the base script
+# Thanks to Iasoon for the advanced ssh config parsing
 set -e
 
 sshhost="flesje"
@@ -9,13 +10,12 @@ fles="http://flashyoshi.me"
 user=$(
     # Join config entries
     sed -n '$!{/host /I!{H;d}};x;s/\n/ /g;p' $HOME/.ssh/config  |
-    # extract user/host combinations
+    # Extract user/host combinations
     grep -i 'user' |
     sed 's/^.*host \([^ \t]\+\).*user \([^ \t]\+\).*$/\1 \2/I' |
-    # find user
+    # Find user
     (grep "^$sshhost" || echo $USER) | cut -d ' ' -f 2 )
-
-
+    
 file="$(mktemp XXXXXX.png)"
 scrot $* "$file"
 chmod 755 $file
