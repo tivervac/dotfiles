@@ -10,6 +10,6 @@ scrot $* "$file"
 chmod 755 $file
 scp -p $file $sshuser:~/images/
 rm "$file"
-url="$fles":8080/~"$user"/images/"$file"
+url="$fles":8080/~flashyoshi/images/"$file"
 notify-send "Screenshot uploaded to $url"
 echo "$url" | xclip -sel c
