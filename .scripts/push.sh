@@ -2,14 +2,25 @@
 # Thanks to noctua
 set -e
 
-sshuser="flesje"
+sshhost="flesje"
 fles="http://flashyoshi.me"
-user=$(cat ~/.ssh/config | sed 's/^ \+//' | sed ':a;N;$!ba;s/\(.\)\n/\1 /g' | grep $sshuser | sed 's/.*User \([^ ]*\) .*/\1/')
+
+# Find ssh username
+user=$(
+    # Join config entries
+    sed -n '$!{/host /I!{H;d}};x;s/\n/ /g;p' $HOME/.ssh/config  |
+    # extract user/host combinations
+    grep -i 'user' |
+    sed 's/^.*host \([^ \t]\+\).*user \([^ \t]\+\).*$/\1 \2/I' |
+    # find user
+    (grep "^$sshhost" || echo $USER) | cut -d ' ' -f 2 )
+
+
 file="$(mktemp XXXXXX.png)"
 scrot $* "$file"
 chmod 755 $file
-scp -p $file $sshuser:~/images/
+scp -p $file $sshhost:~/images/
 rm "$file"
-url="$fles":8080/~flashyoshi/images/"$file"
+url="$fles:8080/~$user/images/$file"
 notify-send "Screenshot uploaded to $url"
 echo "$url" | xclip -sel c
