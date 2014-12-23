@@ -181,7 +181,7 @@ bar {
 }
 
 # Per program rules
-for_window [title=".*Firefox.*"] border none
+for_window [class="Firefox|Zathura"] border none
 
 # Window colors         border  backgr  text    indicator
 client.focused          #54A7FF #54A7FF #888888 #54A7FF
