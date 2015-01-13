@@ -17,8 +17,7 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
-sudo hdparm -S 1 /dev/sdb
-
+urxvtd -q -f -o
 
 feh --bg-scale ~/.wallpaper/totoro.png
 exec i3

@@ -27,9 +27,6 @@ cp .xinitrc ~
 cp .Xresources ~
 sudo cp slim.conf /etc/
 sudo cp clipboard /usr/lib/urxvt/perl/clipboard
-# Start urxvt daemon
-sudo cp urxvtd.service /etc/systemd/system/
-sudo systemctl enable urxvtd.service
 
 mkdir ~/Pictures
 
