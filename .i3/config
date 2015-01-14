@@ -174,9 +174,9 @@ bar {
         separator   #565656
 
         # Colors            border  backgr  text
-        focused_workspace   #54A7FF #54A7FF #333333
-        active_workspace    #54A7FF #54A7FF #746C40
-        inactive_workspace  #547799 #547799 #222222
+        focused_workspace   #54A7DD #54A7DD #333333
+        active_workspace    #54A7DD #54A7DD #746C40
+        inactive_workspace  #5577CC #5577CC #334466
         urgent_workspace    #FC7779 #FC7779 #E1FAF2
     }
 }
@@ -185,8 +185,8 @@ bar {
 for_window [class="Firefox|Zathura"] border none
 
 # Window colors         border  backgr  text    indicator
-client.focused          #54A7FF #54A7FF #888888 #54A7FF
-client.focused_inactive #54A7FF #000000 #888888 #484e50
+client.focused          #54A7DD #54A7DD #888888 #54A7DD
+client.focused_inactive #54A7DD #000000 #888888 #484e50
 client.unfocused        #2d2d2d #262626 #888888 #292d2e
 client.urgent           #FC7779 #FC7779 #E1FAF2 #FC7779
 
