@@ -105,22 +105,22 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+
 bindsym XF86AudioMute exec $(exec amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
 
 # workspace name
-workspace "1 term" output LVDS1
-workspace "2 ff" output LVDS1
-workspace "3 misc" output LVDS1
-workspace "4 misc" output LVDS1
+workspace "1:term" output LVDS1
+workspace "2:ff" output LVDS1
+workspace "3:misc" output LVDS1
+workspace "4:misc" output LVDS1
 
 # switch to workspace
-bindsym $mod+1 workspace 1 term
-bindsym $mod+2 workspace 2 ff
-bindsym $mod+3 workspace 3 misc
-bindsym $mod+4 workspace 4 misc
+bindsym $mod+1 workspace 1:term
+bindsym $mod+2 workspace 2:ff
+bindsym $mod+3 workspace 3:misc
+bindsym $mod+4 workspace 4:misc
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1 term
-bindsym $mod+Shift+2 move container to workspace 2 ff
-bindsym $mod+Shift+3 move container to workspace 3 misc
-bindsym $mod+Shift+4 move container to workspace 4 misc
+bindsym $mod+Shift+1 move container to workspace 1:term
+bindsym $mod+Shift+2 move container to workspace 2:ff
+bindsym $mod+Shift+3 move container to workspace 3:misc
+bindsym $mod+Shift+4 move container to workspace 4:misc
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -166,11 +166,12 @@ new_window pixel 1
 bar {
     position top
     status_command i3status
+    strip_workspace_numbers yes
 
     colors {
         background  #262626
         statusline  #9b9081
-        separator   #252525
+        separator   #262626
 
         # Colors            border  backgr  text
         focused_workspace   #54A7FF #54A7FF #333333
