@@ -165,18 +165,18 @@ new_window pixel 1
 # finds out, if available)
 bar {
     position top
-    status_command i3status
+    status_command i3status --config ~/.i3/i3status.conf
     strip_workspace_numbers yes
 
     colors {
         background  #262626
         statusline  #9b9081
-        separator   #262626
+        separator   #565656
 
         # Colors            border  backgr  text
         focused_workspace   #54A7FF #54A7FF #333333
         active_workspace    #54A7FF #54A7FF #746C40
-        inactive_workspace  #54FFAF #54FFAF #444444
+        inactive_workspace  #547799 #547799 #222222
         urgent_workspace    #FC7779 #FC7779 #E1FAF2
     }
 }
