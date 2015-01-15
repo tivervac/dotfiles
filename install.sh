@@ -1,12 +1,15 @@
 #!/bin/sh
+
+SRC=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 echo "Setting permissions..."
 chmod -R 700 *
 
 echo "Copying files..."
-cp -R .scripts ~
+ln -s "$SRC/.scripts" "$HOME"
 cp -R .zsh ~
 cp -R .wallpaper ~
-cp -R .i3 ~
+ln -s "$SRC/.i3" "$HOME"
 
 # The GTK theme
 sudo cp -R +1 /usr/share/themes/
@@ -20,11 +23,11 @@ cp pacman.conf /etc/
 cp xorg.cong /etc/X11/
 
 echo "Creating links..."
-cp .gitconfig ~
-cp .vimrc ~
-cp .zshrc ~
-cp .xinitrc ~
-cp .Xresources ~
+ln -s "$SRC/.gitconfig" "$HOME"
+ln -s "$SRC/.vimrc" "$HOME"
+ln -s "$SRC/.zshrc" "$HOME"
+ln -s "$SRC/.xinitrc" "HOME"
+ln -s "$SRC/.Xresources" "$HOME"
 sudo cp slim.conf /etc/
 sudo cp clipboard /usr/lib/urxvt/perl/clipboard
 
