@@ -15,7 +15,7 @@ user=$(
     sed 's/^.*host \([^ \t]\+\).*user \([^ \t]\+\).*$/\1 \2/I' |
     # Find user
     (grep "^$sshhost" || echo $USER) | cut -d ' ' -f 2 )
-    
+
 file="$(mktemp XXXXXX.png)"
 scrot $* "$file"
 chmod 755 $file

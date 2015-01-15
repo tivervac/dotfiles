@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 SRC=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo "Setting permissions..."

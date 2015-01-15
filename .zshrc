@@ -29,12 +29,9 @@ key[Delete]=${terminfo[kdch1]}
 
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
-source $HOME/.scripts/mancolor.sh
+source ~/.scripts/mancolor.sh
 PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
-export ANDROID_HOME="/usr/local/android-studio/sdk"
-export JAVA_HOME="/usr/local/lib/jdk1.8.0_05"
-export GENY_HOME="/usr/local/genymotion"
-export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$JAVA_HOME/bin:$GENY_HOME:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$PATH"
 
 export EDITOR=vim
 alias ls='ls --color'
@@ -49,7 +46,5 @@ alias update="sudo pacman -Sy"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias targz="tar -xvzf"
-alias geny="sudo $GENY_HOME/genymotion &"
 alias diskusage="df -h"
-alias hddsleep="sudo hdparm -S 1 /dev/sdb"
 alias copypasta="xclip -sel clip <"
