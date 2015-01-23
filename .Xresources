@@ -19,6 +19,9 @@ Xft.hintstyle: hintslight
 ! Window size
 URxvt.geometry: 90x24
 
+! Flash terminal instead of making an annoying sound
+URxvt.visualBell: true
+
 ! Scrollbar
 URxvt.scrollstyle: plain
 URxvt.scrollBar_right: true
@@ -38,7 +41,7 @@ URxvt.perl-ext-common: matcher,clipboard
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
-!TomorrowNightEighties
+! TomorrowNightEighties
 #define t_background #2d2d2d
 #define t_current_line #393939
 #define t_selection #515151
