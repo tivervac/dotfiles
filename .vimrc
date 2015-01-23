@@ -1,87 +1,80 @@
 " Bundles {{{
 set nocompatible
+" filetype has to be off for Vundle
 filetype off
+" Set our RunTime Path
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
-Bundle 'fugitive.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'tpope/vim-commentary'
-
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'ujihisa/neco-ghc'
-
+" Custom colortheme
 Bundle 'FlashYoshi/bubblegum'
+" nginx highlighting
 Bundle 'nginx.vim'
-Bundle 'jayferd/ragel.vim'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
+" Git diff in the sign collumn
 Bundle 'airblade/vim-gitgutter'
+" Set indentation rule per filetype
 filetype plugin indent on
 " }}}
 " Leader {{{
-
+" Set the leader
 let mapleader=','
 let maplocalleader=','
-nmap <leader>nt :NERDTree<cr>
+" Leader+leader opens NERDTree
+nnoremap <leader><leader> :NERDTreeToggle<esc>
+"nmap <leader>nt :NERDTree<cr>
+" Makes leader+p open insert in pastemode
 set pastetoggle=<leader>p
 " }}}
 " Plugin settings {{{
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-nnoremap <leader><leader> :NERDTreeToggle<esc>
-nnoremap <leader>gt :Gstatus<cr>
-
+" Let NERDTree ignore some files
 let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o']
-
-let g:Powerline_symbols = 'fancy'
-let g:haddock_browser="open"
-
 " }}}
 " General options {{{
 set number
- set ruler
-syntax on
+" Enable ruler (bottom right in statusbar)
+set ruler
+" Remember indent on new line
 set autoindent
-set smartindent
 set encoding=utf-8
+" Allow decent backspacing: remove indents, linebreaks,...
 set backspace=indent,eol,start
+" Disable modelines: file dependent vim settings
 set modelines=0
+" Always show the statusbar
 set laststatus=2
+" Show executing command on last line
+" i.e. no. of selected lines in Visual mode
 set showcmd
 if v:version > 703
   set undofile
   set undoreload=10000
   set undodir=~/.vim/tmp/undo/     " undo files
 endif
+" Open new buffers on the right side i.e. :vnew
 set splitright
+" Open new buffers on below the current i.e. :new
 set splitbelow
-set autoread " auto reload file on change
-
-set scrolloff=8 "keep 8 lines below/above cursor
+" Auto reload file on change
+set autoread
+" Keep 8 lines below/above cursor
+set scrolloff=8
 " }}}
 " Colorscheme {{{
 set t_Co=256
+" Enable syntax highlighting
 syntax enable
 colorscheme bubblegum
 " }}}
 " Wrapping {{{
+" Don't wrap lines
 set nowrap
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" Insert spaces instead of tabs
 set expandtab
+" Show tabs and traling spaces
 set list
 set listchars=tab:\ \ ,trail:·
 
@@ -93,7 +86,6 @@ function! s:setupWrapping()
     setlocal colorcolumn=+1
   endif
 endfunction
-
 " }}}
 " Searching and movement {{{
 " Use sane regexes.
@@ -101,19 +93,23 @@ nnoremap / /\v
 vnoremap / /\v
 
 set hlsearch
+" Search whilst typing
 set incsearch
+" ignorecase and smartcase together:
+" ignore if no case in query
+" case sensitive if case in query
 set ignorecase
 set smartcase
+" Briefly jump to matched brace when we insert one
 set showmatch
-
-" Easier to type, and I never use the default behavior. <3 sjl
-noremap H ^
-noremap L g_
 " }}}
 " Backups and undo {{{
-set backupdir=~/.vim/tmp/backup/ " backups
-set directory=~/.vim/tmp/swap/   " swap files
-set backup                       " enable backups
+" Backups
+set backupdir=~/.vim/tmp/backup/
+" Swap files
+set directory=~/.vim/tmp/swap/
+" Enable backups
+set backup
 set backupskip=/tmp/*,/private/tmp/*"
 " }}}
 " Folding {{{
@@ -139,10 +135,6 @@ function! MyFoldText() " {{{
     return line . ' ' . repeat(" ",fillcharcount) . ' ' . foldedlinecount . ' '
 endfunction " }}}
 set foldtext=MyFoldText()
-
-" }}}
-" I hate K {{{
-nnoremap K <nop>
 " }}}
 " Filetype specific {{{
 " Markdown {{{
@@ -222,92 +214,17 @@ augroup END
 " }}}
 " }}}
 " Mappings {{{
-nnoremap <silent> <C-l> :noh<CR><C-L>
-" edit and source vimrc easily
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" spare my fingers in the long run
-inoremap jj <esc>
-inoremap jK jk
-
-" rewrite file with sudo
+" Rewrite file with sudo
 cmap w!! w !sudo tee % >/dev/null
-nnoremap _md :set ft=markdown<CR>
-
-" open shell
-nnoremap <leader>sh :VimShellPop<CR>
 " }}}
-" Tab completion for commands {{{
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+" Autocommands {{{
+" Auto fold on opening file
+au BufRead {.vimrc,vimrc} set foldmethod=marker
+au BufRead /etc/nginx/* set ft=nginx
 " }}}
-" some autocommands {{{
-augroup unrelated_au
-  au!
-
-  " function to remove trailing whitespace without moving to it
-  function! s:removeTrailingWhitespace()
-    normal! ma
-    :%s/\s\+$//e
-    normal! `a
-  endfunction
-
-  " Remove trailing whitespace
-  autocmd BufWritePre * :call s:removeTrailingWhitespace()
-
-  " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
-
-  " json == javascript
-  au BufNewFile,BufRead *.json set ft=javascript
-
-  au BufRead {.vimrc,vimrc} set foldmethod=marker
-
-  au BufRead /etc/nginx/* set ft=nginx
-
-augroup END
-"}}}
-" Relative number toggle {{{
-function! ToggleNumberRel()
-  if &relativenumber
-    setlocal number
-  else
-    setlocal relativenumber
-  endif
-endfunction
-
-" Quickly toggle between relativenumber and number
-noremap <leader>rr :call ToggleNumberRel()<CR>
-" }}}
-" Inline mathematics {{{
-function! PipeToBc()
-  let saved_unnamed_register = @@
-
-  silent execute 'r !echo ' . shellescape(getline('.')) . ' | bc'
-  normal! dw
-  execute "normal! kA = \<ESC>p"
-  normal! jdd
-
-  let @@ = saved_unnamed_register
-endfunction
-nnoremap <leader>bc :call PipeToBc()<CR>
-" }}}
-
-" for some reason vim searches for something
-:noh
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-inoremap çà <esc>
-
-" Clipboard
+" Sync clipboard
 if has ('unnamedplus')
     set clipboard=unnamedplus
 else
     set clipboard=unnamed
 end
-
-"Write with sudo
-cmap w!! w !sudo tee % > /dev/null
-
-" Fix for realtime gitgutter
-":GitGutterDisable
