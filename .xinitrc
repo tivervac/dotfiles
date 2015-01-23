@@ -14,6 +14,10 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
+# Put beep volume to zero, don't disable to allow for
+# visual bleep
+xset b 0
+
 urxvtd -q -f -o
 
 feh --bg-scale ~/.wallpaper/totoro.png
