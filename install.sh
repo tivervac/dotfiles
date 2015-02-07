@@ -1,47 +1,83 @@
 #!/bin/sh
 
-set -e
+set -ue
+if [ $# == 0 ]; then
+    printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
+    exit 1;
+fi
 
 SRC=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo "Setting permissions..."
-chmod -R 700 *
+sudo chmod -R 700 "$SRC"
 
-echo "Copying files..."
-ln -s "$SRC/.scripts" "$HOME"
-cp -R .zsh ~
-cp -R .wallpaper ~
-ln -s "$SRC/.i3" "$HOME"
+function setup_arch() {
+    echo "Setting up arch..."
+    # Pretty pacman
+    cp pacman.conf /etc/
+}
 
-# The GTK theme
-sudo cp -R +1 /usr/share/themes/
+function setup_bumblebee() {
+    echo "Setting up bumblebee..."
+    # Shutdown the nvidia card properly
+    sudo cp nvidia-enable.service /etc/systemd/system/
+    sudo systemctl enable nvidia-enable.service
+}
 
-# Shutdown the nvidia card properly
-sudo cp nvidia-enable.service /etc/systemd/system/
-sudo systemctl enable nvidia-enable.service
+function setup_vim() {
+    echo "Setting up Vundle..."
+    mkdir -p ~/.vim/bundle
+    if [[ ! -d ~/.vim/bundle/vundle ]]; then
+        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    fi
 
-# Pretty pacman
-cp pacman.conf /etc/
-cp xorg.cong /etc/X11/
+    echo "Setting up vim environment..."
+    ln -s "$SRC/.vimrc" "$HOME"
+    mkdir -p ~/.vim/tmp/swap
+    mkdir ~/.vim/tmp/backup
+    vim +BundleInstall! +qall
+}
 
-echo "Creating links..."
-ln -s "$SRC/.gitconfig" "$HOME"
-ln -s "$SRC/.vimrc" "$HOME"
-ln -s "$SRC/.zshrc" "$HOME"
-ln -s "$SRC/.xinitrc" "$HOME"
-ln -s "$SRC/.Xresources" "$HOME"
-sudo cp slim.conf /etc/
-sudo cp clipboard /usr/lib/urxvt/perl/clipboard
+function setup_non_gui() {
+    echo "Setting up non GUI elements..."
+    ln -s "$SRC/.scripts" "$HOME"
+    ln -s "$SRC/.gitconfig" "$HOME"
+    ln -s "$SRC/.zshrc" "$HOME"
+    cp -R .zsh ~
+    setup_vim
+}
 
-mkdir ~/Pictures
+function setup_i3() {
+    echo "Setting up i3..."
+    cp -R .wallpaper "$HOME"
+    ln -s "$SRC/.i3" "$HOME"
+    ln -s "$SRC/.xinitrc" "$HOME"
+    ln -s "$SRC/.Xresources" "$HOME"
+    sudo cp clipboard /usr/lib/urxvt/perl/clipboard
+}
 
-echo "Setting up Vundle..."
-mkdir -p ~/.vim/bundle
-if [[ ! -d ~/.vim/bundle/vundle ]]; then
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-fi
+function setup_gui() {
+    setup_i3
+    echo "Setting up rest of GUI..."
+    # The GTK theme
+    sudo cp -R gtk-theme /usr/share/themes/
+    sudo cp slim.conf /etc/
+    cp xorg.conf /etc/X11/
+}
 
-echo "Setting up vim environment..."
-mkdir -p ~/.vim/tmp/swap
-mkdir ~/.vim/tmp/backup
-vim +BundleInstall! +qall
+for OPT in $*; do
+    case "$OPT" in
+        --all)      setup_gui
+                    setup_non_gui
+                    setup_arch
+                    setup_bumblebee;;
+        --arch)     setup_arch;;
+        --bb)       setup_bumblee;;
+        --gui)      setup_gui;;
+        --i3)       setup_i3;;
+        --no-gui)   setup_non_gui;;
+        --vim)      setup_vim;;
+        *)          printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
+                    exit 2;;
+    esac
+done
