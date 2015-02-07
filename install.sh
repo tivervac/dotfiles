@@ -28,7 +28,7 @@ echo "Creating links..."
 ln -s "$SRC/.gitconfig" "$HOME"
 ln -s "$SRC/.vimrc" "$HOME"
 ln -s "$SRC/.zshrc" "$HOME"
-ln -s "$SRC/.xinitrc" "HOME"
+ln -s "$SRC/.xinitrc" "$HOME"
 ln -s "$SRC/.Xresources" "$HOME"
 sudo cp slim.conf /etc/
 sudo cp clipboard /usr/lib/urxvt/perl/clipboard
