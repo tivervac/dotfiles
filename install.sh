@@ -36,12 +36,12 @@ sudo cp clipboard /usr/lib/urxvt/perl/clipboard
 mkdir ~/Pictures
 
 echo "Setting up Vundle..."
+mkdir -p ~/.vim/bundle
 if [[ ! -d ~/.vim/bundle/vundle ]]; then
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
 echo "Setting up vim environment..."
-mkdir ~/.vim/tmp
-mkdir ~/.vim/tmp/swap
+mkdir -p ~/.vim/tmp/swap
 mkdir ~/.vim/tmp/backup
 vim +BundleInstall! +qall
