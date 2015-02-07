@@ -49,7 +49,8 @@ set showcmd
 if v:version > 703
   set undofile
   set undoreload=10000
-  set undodir=~/.vim/tmp/undo/     " undo files
+  " Undo files
+  set undodir=~/.vim/tmp/undo/
 endif
 " Open new buffers on the right side i.e. :vnew
 set splitright
@@ -126,14 +127,15 @@ function! MyFoldText() " {{{
     let windowwidth = winwidth(0) - nucolwidth - 3
     let foldedlinecount = v:foldend - v:foldstart
 
-    " expand tabs into spaces
+    " Expand tabs into spaces
     let onetab = strpart('          ', 0, &tabstop)
     let line = substitute(line, '\t', onetab, 'g')
 
     let line = strpart(line, 0, windowwidth - 4 -len(foldedlinecount))
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
     return line . ' ' . repeat(" ",fillcharcount) . ' ' . foldedlinecount . ' '
-endfunction " }}}
+endfunction
+" }}}
 set foldtext=MyFoldText()
 " }}}
 " Filetype specific {{{

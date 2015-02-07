@@ -182,7 +182,7 @@ bar {
 }
 
 # Per program rules
-for_window [class="Firefox|Zathura"] border none
+for_window [class="Firefox|Zathura|Chromium"] border none
 
 # Window colors         border  backgr  text    indicator
 client.focused          #54A7DD #54A7DD #888888 #54A7DD

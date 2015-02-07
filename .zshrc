@@ -41,9 +41,9 @@ function spectrum_ls() {
 }
 
 export EDITOR=vim
-alias ls='ls --color'
 
-alias l='ls -al'
+alias ls='ls --color'
+alias l='ls -Alhk'
 alias open="xdg-open"
 alias g="git"
 alias install="sudo pacman -S"
