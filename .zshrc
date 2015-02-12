@@ -30,16 +30,9 @@ key[Delete]=${terminfo[kdch1]}
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
 source ~/.scripts/mancolor.sh
-PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
+source ~/.zsh/functions/*
+export PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
 export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$PATH"
-
-ZSH_SPECTRUM_TEXT=${ZSH_SPECTRUM_TEXT:-~~~~ NYANNYAN :3 ~~~~}
-function spectrum_ls() {
-    for code in {000..255}; do
-        print -P -- "$code: %F{$code}$ZSH_SPECTRUM_TEXT%f"
-    done
-}
-
 export EDITOR=vim
 
 alias ls='ls --color'

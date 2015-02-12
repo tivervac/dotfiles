@@ -20,5 +20,7 @@ xset b 0
 
 urxvtd -q -f -o
 
+~/.scripts/spectrum.sh
+
 feh --bg-scale ~/.wallpaper/totoro.png
 exec i3
