@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -ue
 if [ $# == 0 ]; then
@@ -75,7 +75,7 @@ for OPT in $*; do
         --bb)       setup_bumblee;;
         --gui)      setup_gui;;
         --i3)       setup_i3;;
-        --no-gui)   setup_non_gui;;
+        --nogui)   setup_non_gui;;
         --vim)      setup_vim;;
         *)          printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
                     exit 2;;
