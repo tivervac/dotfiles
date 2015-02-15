@@ -26,43 +26,43 @@ function setup_bumblebee() {
 
 function setup_vim() {
     echo "Setting up Vundle..."
-    mkdir -p ~/.vim/bundle
-    if [[ ! -d ~/.vim/bundle/vundle ]]; then
+    mkdir -p "$SRC/.vim/bundle"
+    if [[ ! -d "$SRC/.vim/bundle/vundle" ]]; then
         git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     fi
 
     echo "Setting up vim environment..."
-    ln -s "$SRC/.vimrc" "$HOME"
-    mkdir -p ~/.vim/tmp/swap
-    mkdir ~/.vim/tmp/backup
+    ln -sfn "$SRC/.vimrc" "$HOME"
+    mkdir -p "$HOME/.vim/tmp/swap"
+    mkdir "$HOME/.vim/tmp/backup"
     vim +BundleInstall! +qall
 }
 
 function setup_non_gui() {
     echo "Setting up non GUI elements..."
-    ln -s "$SRC/.scripts" "$HOME"
-    ln -s "$SRC/.gitconfig" "$HOME"
-    ln -s "$SRC/.zshrc" "$HOME"
-    cp -R .zsh ~
+    ln -sfn "$SRC/.scripts" "$HOME"
+    ln -sfn "$SRC/.gitconfig" "$HOME"
+    ln -sfn "$SRC/.zshrc" "$HOME"
+    ln -sfn "$SRC/.zsh" "$HOME"
     setup_vim
 }
 
 function setup_i3() {
     echo "Setting up i3..."
-    cp -R .wallpaper "$HOME"
-    ln -s "$SRC/.i3" "$HOME"
-    ln -s "$SRC/.xinitrc" "$HOME"
-    ln -s "$SRC/.Xresources" "$HOME"
-    sudo cp clipboard /usr/lib/urxvt/perl/clipboard
+    cp -R "$SRC/.wallpaper" "$HOME"
+    ln -sfn "$SRC/.i3" "$HOME"
+    ln -sfn "$SRC/.xinitrc" "$HOME"
+    ln -sfn "$SRC/.Xresources" "$HOME"
+    sudo cp "$SRC/clipboard" /usr/lib/urxvt/perl/clipboard
 }
 
 function setup_gui() {
     setup_i3
     echo "Setting up rest of GUI..."
     # The GTK theme
-    sudo cp -R gtk-theme /usr/share/themes/
-    sudo cp slim.conf /etc/
-    cp xorg.conf /etc/X11/
+    sudo cp -R "$SRC/gtk-theme" /usr/share/themes/
+    sudo cp "$SRC/slim.conf" /etc/
+    cp "$SRC/xorg.conf" /etc/X11/
 }
 
 for OPT in $*; do
