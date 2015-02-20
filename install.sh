@@ -44,6 +44,7 @@ function setup_non_gui() {
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
+    ln -sfn "$SRC/htoprc" "$HOME/.config/htop/"
     setup_vim
 }
 
