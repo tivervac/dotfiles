@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -43,16 +43,9 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
@@ -62,12 +55,12 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # switch between workspaces
-bindsym Mod1+Left workspace prev_on_output
-bindsym Mod1+Right workspace next_on_output
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
 
 # alt-tab
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift+Tab focus left
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -90,8 +83,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # take a screenshot
-bindsym --release Mod1+Shift+4 exec "~/.scripts/push.sh -s"
-bindsym Mod1+Shift+5 exec "~/.scripts/push.sh"
+bindsym --release $mod+Shift+4  exec "~/.scripts/push.sh -s"
+bindsym $mod+Shift+5 exec "~/.scripts/push.sh"
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -156,7 +149,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Create lock binding
-bindsym Mod1+Shift+l exec --no-startup-id "i3lock -c 000000", mode="default"
+bindsym $mod+Shift+l exec --no-startup-id "i3lock -c 000000", mode="default"
 
 # Window borders (normal|pixel|1pixel|none)
 new_window pixel 1
