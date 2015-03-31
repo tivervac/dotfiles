@@ -17,6 +17,11 @@ function setup_arch() {
     cp pacman.conf /etc/
 }
 
+function setup_znc() {
+    cp ntp.conf /etc/
+    sudo systemctl enable ntpd.service
+}
+
 function setup_bumblebee() {
     echo "Setting up bumblebee..."
     # Shutdown the nvidia card properly
@@ -71,13 +76,15 @@ for OPT in $*; do
         --all)      setup_gui
                     setup_non_gui
                     setup_arch
-                    setup_bumblebee;;
+                    setup_bumblebee
+                    setup_znc;;
         --arch)     setup_arch;;
         --bb)       setup_bumblee;;
         --gui)      setup_gui;;
         --i3)       setup_i3;;
-        --nogui)   setup_non_gui;;
+        --nogui)    setup_non_gui;;
         --vim)      setup_vim;;
+        --znc)      setup_znc;;
         *)          printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
                     exit 2;;
     esac
