@@ -28,8 +28,8 @@ URxvt.scrollBar_right: true
 URxvt.scrollColor: #2d2d2d
 
 ! Copy paste
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.C-M-c: perl:clipboard:copy
+URxvt.keysym.C-M-v: perl:clipboard:paste
 
 ! Padding
 URxvt.internalBorder: 3
