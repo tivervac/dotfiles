@@ -27,7 +27,9 @@ URxvt.scrollstyle: plain
 URxvt.scrollBar_right: true
 URxvt.scrollColor: #2d2d2d
 
-URxvt.keysym.Control-Insert: perl:clipboard:copy
+! Copy paste
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 
 ! Padding
 URxvt.internalBorder: 3
