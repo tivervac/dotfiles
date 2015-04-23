@@ -18,7 +18,7 @@ user=$(
     )
 
 file="$(mktemp XXXXXX.png)"
-scrot $* "$file"
+escrotum $* "$file"
 chmod 755 $file
 scp -p $file $sshhost:~/images/
 rm "$file"

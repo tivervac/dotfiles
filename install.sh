@@ -14,16 +14,18 @@ sudo chmod -R 700 "$SRC"
 function setup_arch() {
     echo "Setting up arch..."
     # Pretty pacman
-    cp pacman.conf /etc/
+    sudo cp pacman.conf /etc/
 }
 
 function setup_znc() {
-    cp ntp.conf /etc/
+    sudo cp ntp.conf /etc/
     sudo systemctl enable ntpd.service
 }
 
 function setup_bumblebee() {
     echo "Setting up bumblebee..."
+    # Disable nouveau
+    sudo cp blacklist.conf /etc/modprobe.d
     # Shutdown the nvidia card properly
     sudo cp nvidia-enable.service /etc/systemd/system/
     sudo systemctl enable nvidia-enable.service
@@ -31,16 +33,16 @@ function setup_bumblebee() {
 
 function setup_vim() {
     echo "Setting up Vundle..."
-    mkdir -p "$SRC/.vim/bundle"
-    if [[ ! -d "$SRC/.vim/bundle/vundle" ]]; then
+    mkdir -p "$HOME/.vim/bundle"
+    if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
         git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+        vim +BundleInstall! +qall
     fi
 
     echo "Setting up vim environment..."
     ln -sfn "$SRC/.vimrc" "$HOME"
     mkdir -p "$HOME/.vim/tmp/swap"
-    mkdir "$HOME/.vim/tmp/backup"
-    vim +BundleInstall! +qall
+    mkdir -p "$HOME/.vim/tmp/backup"
 }
 
 function setup_non_gui() {
@@ -49,6 +51,7 @@ function setup_non_gui() {
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
+    mkdir -p "$HOME/.config/htop/"
     ln -sfn "$SRC/htoprc" "$HOME/.config/htop/"
     setup_vim
 }
@@ -67,8 +70,10 @@ function setup_gui() {
     echo "Setting up rest of GUI..."
     # The GTK theme
     sudo cp -R "$SRC/gtk-theme" /usr/share/themes/
+    sudo chmod -R 755 /usr/share/themes/
+    sudo systemctl enable slim.service
     sudo cp "$SRC/slim.conf" /etc/
-    cp "$SRC/xorg.conf" /etc/X11/
+    sudo cp "$SRC/xorg.conf" /etc/X11/
 }
 
 for OPT in $*; do
