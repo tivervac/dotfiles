@@ -1,8 +1,9 @@
 #!/bin/bash
 
 set -ue
+USAGE="Usage: "$0": --[all|arch|bb|gui|i3|nogui|vim|ntp]"
 if [ $# == 0 ]; then
-    printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
+    echo $USAGE
     exit 1;
 fi
 
@@ -17,7 +18,7 @@ function setup_arch() {
     sudo cp pacman.conf /etc/
 }
 
-function setup_znc() {
+function setup_ntp() {
     sudo cp ntp.conf /etc/
     sudo systemctl enable ntpd.service
 }
@@ -89,8 +90,8 @@ for OPT in $*; do
         --i3)       setup_i3;;
         --nogui)    setup_non_gui;;
         --vim)      setup_vim;;
-        --znc)      setup_znc;;
-        *)          printf "Usage: %s: --[all|arch|bb|gui|i3|nogui|vim]\n" $0
+        --ntp)      setup_ntp;;
+        *)          echo $USAGE
                     exit 2;;
     esac
 done
