@@ -62,6 +62,7 @@ set autoread
 set scrolloff=8
 " }}}
 " Colorscheme {{{
+" Enable 256 color mode
 set t_Co=256
 " Enable syntax highlighting
 syntax enable

@@ -83,8 +83,8 @@ bindsym $mod+Ctrl+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # take a screenshot
-bindsym --release $mod+Ctrl+4  exec "~/.scripts/push.sh -s"
-bindsym $mod+Ctrl+5 exec "~/.scripts/push.sh"
+bindsym --release $mod+Shift+4  exec "~/.scripts/push.sh -s"
+bindsym $mod+Shift+3 exec "~/.scripts/push.sh"
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -163,7 +163,8 @@ bar {
 
     colors {
         background  #262626
-        statusline  #9b9081
+        statusline  #808080
+        #statusline  #9b9081
         separator   #565656
 
         # Colors            border  backgr  text

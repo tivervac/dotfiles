@@ -24,4 +24,4 @@ scp -p $file $sshhost:~/images/
 rm "$file"
 url="$fles:8080/~$user/images/$file"
 notify-send "Screenshot uploaded to $url"
-echo "$url" | xclip -sel c
+echo "$url" | xsel -bi
