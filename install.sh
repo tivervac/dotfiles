@@ -83,7 +83,7 @@ for OPT in $*; do
                     setup_non_gui
                     setup_arch
                     setup_bumblebee
-                    setup_znc;;
+                    setup_ntp;;
         --arch)     setup_arch;;
         --bb)       setup_bumblee;;
         --gui)      setup_gui;;

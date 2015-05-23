@@ -11,7 +11,7 @@ user=$(
     # Join config entries
     sed -n '$!{/host /I!{H;d}};x;s/\n/ /g;p' $HOME/.ssh/config  |
     # Extract user/host combinations
-    grep -i 'user' |
+    grep -i 'user' | tr -s ' ' ' ' |
     sed 's/^.*host \([^ \t]\+\).*user \([^ \t]\+\).*$/\1 \2/I' |
     # Find user
     (grep "^$sshhost" || echo $USER) | cut -d ' ' -f 2
