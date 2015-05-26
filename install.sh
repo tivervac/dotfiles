@@ -52,8 +52,8 @@ function setup_non_gui() {
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
-    mkdir -p "$HOME/.config/htop/"
-    ln -sfn "$SRC/htoprc" "$HOME/.config/htop/"
+    ln -sfn "$SRC/.config/htop" "$HOME/.config/"
+    ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
     setup_vim
 }
 
@@ -75,6 +75,8 @@ function setup_gui() {
     sudo systemctl enable slim.service
     sudo cp "$SRC/slim.conf" /etc/
     sudo cp "$SRC/xorg.conf" /etc/X11/
+    # Configure compton
+    cp "$SRC/.compton.conf" "$HOME"
 }
 
 for OPT in $*; do
