@@ -13,6 +13,8 @@ Bundle 'FlashYoshi/bubblegum'
 Bundle 'nginx.vim'
 " Git diff in the sign collumn
 Bundle 'airblade/vim-gitgutter'
+" Code completion
+Bundle 'Valloric/YouCompleteMe'
 " Set indentation rule per filetype
 filetype plugin indent on
 " }}}
