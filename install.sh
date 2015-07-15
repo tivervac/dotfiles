@@ -54,7 +54,17 @@ function setup_non_gui() {
     ln -sfn "$SRC/.zsh" "$HOME"
     ln -sfn "$SRC/.config/htop" "$HOME/.config/"
     ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
+
     setup_vim
+}
+
+function setup_ssh_agent() {
+    ln -sfn "$SRC/.config/systemd/user/ssh-agent.service" "$HOME/.config/"
+    sudo cp "$SRC/dbus.{socket, service}" "/etc/systemd/user"
+    sudo mkdir -p "/etc/systemd/system/user@.service"
+    sudo cp "$SRC/dbus.conf" "/etc/systemd/system/user@.service/"
+    sudo systemctl --global enable dbus.socket
+    systemctl --user enable ssh-agent.service
 }
 
 function setup_i3() {
@@ -81,19 +91,21 @@ function setup_gui() {
 
 for OPT in $*; do
     case "$OPT" in
-        --all)      setup_gui
-                    setup_non_gui
-                    setup_arch
-                    setup_bumblebee
-                    setup_ntp;;
-        --arch)     setup_arch;;
-        --bb)       setup_bumblee;;
-        --gui)      setup_gui;;
-        --i3)       setup_i3;;
-        --nogui)    setup_non_gui;;
-        --vim)      setup_vim;;
-        --ntp)      setup_ntp;;
-        *)          echo $USAGE
-                    exit 2;;
+        --all)          setup_gui
+                        setup_non_gui
+                        setup_arch
+                        setup_bumblebee
+                        setup_ntp
+                        setup setup_ssh_agent;;
+        --arch)         setup_arch;;
+        --bb)           setup_bumblee;;
+        --gui)          setup_gui;;
+        --i3)           setup_i3;;
+        --ssh-agent)    setup setup_ssh_agent;;
+        --nogui)        setup_non_gui;;
+        --vim)          setup_vim;;
+        --ntp)          setup_ntp;;
+        *)              echo $USAGE
+                        exit 2;;
     esac
 done

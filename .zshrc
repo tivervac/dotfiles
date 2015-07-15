@@ -32,7 +32,8 @@ source ~/.zsh/git-prompt/zshrc.sh
 source ~/.scripts/mancolor.sh
 source ~/.zsh/functions/*
 export PROMPT='[%T]%{$fg[red]%}%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
-export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$PATH"
+export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=vim
 
 alias ls='ls --color'
