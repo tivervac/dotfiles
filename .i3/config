@@ -186,3 +186,4 @@ client.urgent           #FC7779 #FC7779 #E1FAF2 #FC7779
 
 # Notifications
 exec --no-startup-id dunst
+exec --no-startup-id compton --config ~/.compton.conf -b
