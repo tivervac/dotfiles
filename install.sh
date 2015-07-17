@@ -60,9 +60,9 @@ function setup_non_gui() {
 
 function setup_ssh_agent() {
     ln -sfn "$SRC/.config/systemd/user/ssh-agent.service" "$HOME/.config/"
-    sudo cp "$SRC/dbus.{socket, service}" "/etc/systemd/user"
-    sudo mkdir -p "/etc/systemd/system/user@.service"
-    sudo cp "$SRC/dbus.conf" "/etc/systemd/system/user@.service/"
+    sudo cp "$SRC/dbus.{socket,service}" "/etc/systemd/user/"
+    sudo mkdir -p "/etc/systemd/system/user@.service.d"
+    sudo cp "$SRC/dbus.conf" "/etc/systemd/system/user@.service.d/"
     sudo systemctl --global enable dbus.socket
     systemctl --user enable ssh-agent.service
 }
