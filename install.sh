@@ -54,7 +54,6 @@ function setup_non_gui() {
     ln -sfn "$SRC/.zsh" "$HOME"
     ln -sfn "$SRC/.config/htop" "$HOME/.config/"
     ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
-
     setup_vim
 }
 

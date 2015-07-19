@@ -42,6 +42,7 @@ ssh-add
 alias ls='ls --color'
 alias l='ls -Alhk'
 alias open="xdg-open"
+# git but with some extra features
 alias g="hub"
 alias install="pacaur -S"
 alias remove="pacaur -Rsn"
