@@ -42,7 +42,7 @@ ssh-add
 alias ls='ls --color'
 alias l='ls -Alhk'
 alias open="xdg-open"
-alias g="git"
+alias g="hub"
 alias install="pacaur -S"
 alias remove="pacaur -Rsn"
 alias upgrade="pacaur -Syu"

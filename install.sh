@@ -79,9 +79,6 @@ function setup_i3() {
 function setup_gui() {
     setup_i3
     echo "Setting up rest of GUI..."
-    # The GTK theme
-    sudo cp -R "$SRC/gtk-theme" /usr/share/themes/
-    sudo chmod -R 755 /usr/share/themes/
     sudo systemctl enable slim.service
     sudo cp "$SRC/slim.conf" /etc/
     sudo cp "$SRC/xorg.conf" /etc/X11/
@@ -96,12 +93,12 @@ for OPT in $*; do
                         setup_arch
                         setup_bumblebee
                         setup_ntp
-                        setup setup_ssh_agent;;
+                        setup_ssh_agent;;
         --arch)         setup_arch;;
         --bb)           setup_bumblee;;
         --gui)          setup_gui;;
         --i3)           setup_i3;;
-        --ssh-agent)    setup setup_ssh_agent;;
+        --ssh-agent)    setup_ssh_agent;;
         --nogui)        setup_non_gui;;
         --vim)          setup_vim;;
         --ntp)          setup_ntp;;

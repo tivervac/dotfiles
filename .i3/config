@@ -93,8 +93,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # add keyboard specific keys
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5-
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+
+bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%- ; notify-send $(amixer get Master | grep % | sed 's/.*\[\([0-9]*\)%.*/\1/' | uniq)"
+bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+ ; notify-send $(amixer get Master | grep % | sed 's/.*\[\([0-9]*\)%.*/\1/' | uniq)"
 bindsym XF86AudioMute exec $(exec amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
 
 # workspace name
@@ -164,13 +164,12 @@ bar {
     colors {
         background  #262626
         statusline  #808080
-        #statusline  #9b9081
         separator   #565656
 
         # Colors            border  backgr  text
-        focused_workspace   #54A7DD #54A7DD #333333
-        active_workspace    #54A7DD #54A7DD #746C40
-        inactive_workspace  #5577CC #5577CC #334466
+        focused_workspace   #0F9647 #262626 #cccccc
+        active_workspace    #5f87ff #262626 #565656
+        inactive_workspace  #5577CC #262626 #565656
         urgent_workspace    #FC7779 #FC7779 #E1FAF2
     }
 }
@@ -179,9 +178,9 @@ bar {
 for_window [class="Firefox|Zathura|Chromium"] border none
 
 # Window colors         border  backgr  text    indicator
-client.focused          #54A7DD #54A7DD #888888 #54A7DD
-client.focused_inactive #54A7DD #000000 #888888 #484e50
-client.unfocused        #2d2d2d #262626 #888888 #292d2e
+client.focused          #5f87ff #54A7DD #000000 #54A7DD
+client.focused_inactive #262626 #262626 #565656 #484e50
+client.unfocused        #262626 #262626 #565656 #292d2e
 client.urgent           #FC7779 #FC7779 #E1FAF2 #FC7779
 
 # Notifications
