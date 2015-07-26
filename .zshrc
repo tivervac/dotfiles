@@ -37,7 +37,7 @@ export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'pri
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=vim
 
-ssh-add
+ssh-add 2> /dev/null
 
 alias ls='ls --color'
 alias l='ls -Alhk'
