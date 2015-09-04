@@ -70,9 +70,14 @@ function setup_ssh_agent() {
 function setup_i3() {
     echo "Setting up i3..."
     cp -R "$SRC/.wallpaper" "$HOME"
-    ln -sfn "$SRC/.i3" "$HOME"
+    if [[ ! -d "$HOME/.i3" ]]; then
+        mkdir "$SRC/.i3"
+    fi
+
+    cp "$SRC/.i3/config.template" "$HOME/.i3/config"
+    cp "$SRC/.i3/i3status.conf.template" "$HOME/.i3/i3status.conf"
+    cp "$SRC/.Xresources.template" "$HOME/.Xresources"
     ln -sfn "$SRC/.xinitrc" "$HOME"
-    cp  "$SRC/.Xresources.template" "$HOME/.Xresources"
     sudo cp "$SRC/clipboard" /usr/lib/urxvt/perl/clipboard
     sudo cp "$SRC/font-size" /usr/lib/urxvt/perl/font-size
 }
@@ -90,11 +95,16 @@ function setup_gui() {
 function setup_desktop() {
     echo "Setting up desktop specific files..."
     sed -i 's/$\[size\]/-1/' "$HOME/.Xresources"
+    sed -i 's/$\[size\]/8/' "$HOME/.i3/config"
+    sed -i 's/$\[w[13]\]/DVI-D-0/' "$HOME/.i3/config"
+    sed -i 's/$\[w[24]\]/DVI-I-1/' "$HOME/.i3/config"
 }
 
 function setup_latop() {
     echo "Setting up laptop specific files..."
     sed -i 's/$\[size\]/-2/' "$HOME/.Xresources"
+    sed -i 's/$\[size\]/9/' "$HOME/.i3/config"
+    sed -i 's/$\[w[0-9]\]/LVDS1/' "$HOME/.i3/config"
 }
 
 for OPT in $*; do
