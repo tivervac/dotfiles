@@ -95,7 +95,7 @@ function setup_gui() {
 function setup_desktop() {
     echo "Setting up desktop specific files..."
     sed -i 's/$\[size\]/-1/' "$HOME/.Xresources"
-    sed -i 's/$\[size\]/8/' "$HOME/.i3/config"
+    sed -i 's/$\[size\]/9/' "$HOME/.i3/config"
     sed -i 's/$\[w[13]\]/DVI-D-0/' "$HOME/.i3/config"
     sed -i 's/$\[w[24]\]/DVI-I-1/' "$HOME/.i3/config"
     sed -i 's/$\[ethernet\]/3/' "$HOME/.i3/i3status.conf"
@@ -106,7 +106,7 @@ function setup_desktop() {
 function setup_latop() {
     echo "Setting up laptop specific files..."
     sed -i 's/$\[size\]/-2/' "$HOME/.Xresources"
-    sed -i 's/$\[size\]/9/' "$HOME/.i3/config"
+    sed -i 's/$\[size\]/8/' "$HOME/.i3/config"
     sed -i 's/$\[w[0-9]\]/LVDS1/' "$HOME/.i3/config"
     sed -i 's/$\[ethernet\]/6/' "$HOME/.i3/i3status.conf"
     sed -i 's/$\[wireless\]/order += "wireless wlp3s0"/' "$HOME/.i3/i3status.conf"
