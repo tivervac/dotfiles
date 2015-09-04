@@ -31,6 +31,10 @@ URxvt.scrollColor: #2d2d2d
 URxvt.keysym.C-M-c: perl:clipboard:copy
 URxvt.keysym.C-M-v: perl:clipboard:paste
 
+! Change fontsize at runtime
+URxvt.keysym.M-plus: perl:font-size:increase
+URxvt.keysym.M-minus: perl:font-size:decrease
+
 ! Padding
 URxvt.internalBorder: 3
 
@@ -39,7 +43,7 @@ URxvt*font: xft:Inconsolata:size=8
 URxvt*letterSpace: -2
 
 ! Perl extensions: URLs
-URxvt.perl-ext-common: matcher,clipboard
+URxvt.perl-ext-common: matcher,clipboard,font-size
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 

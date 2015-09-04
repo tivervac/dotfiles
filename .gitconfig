@@ -1,6 +1,6 @@
 [user]
-    name = Titouan Vervack
-	email = Titouan.Vervack@UGent.be
+  name = Titouan Vervack
+  email = tivervac@gmail.com
 [color]
   ui = true
 [core]
@@ -17,6 +17,6 @@
         a = add -A
         ch = checkout
 [credential]
-	helper = cache --timeout=3600
+    helper = cache --timeout=3600
 [push]
-	default = current
+    default = current

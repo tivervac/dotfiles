@@ -58,8 +58,9 @@ function setup_non_gui() {
 }
 
 function setup_ssh_agent() {
-    ln -sfn "$SRC/.config/systemd/user/ssh-agent.service" "$HOME/.config/"
-    sudo cp "$SRC/dbus.{socket,service}" "/etc/systemd/user/"
+    ln -sfn "$SRC/.config/systemd/" "$HOME/.config/"
+    # No quotes for expansion :)
+    sudo cp $SRC/dbus.{socket,service} "/etc/systemd/user/"
     sudo mkdir -p "/etc/systemd/system/user@.service.d"
     sudo cp "$SRC/dbus.conf" "/etc/systemd/system/user@.service.d/"
     sudo systemctl --global enable dbus.socket
@@ -73,6 +74,7 @@ function setup_i3() {
     ln -sfn "$SRC/.xinitrc" "$HOME"
     ln -sfn "$SRC/.Xresources" "$HOME"
     sudo cp "$SRC/clipboard" /usr/lib/urxvt/perl/clipboard
+    sudo cp "$SRC/font-size" /usr/lib/urxvt/perl/font-size
 }
 
 function setup_gui() {
