@@ -206,6 +206,7 @@ augroup ft_ruby
   au!
 
   au FileType ruby call s:setupWrapping()
+  au FileType ruby setlocal ts=2 sts=2 sw=2
 
 augroup END
 " }}}
