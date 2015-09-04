@@ -13,6 +13,8 @@ Bundle 'FlashYoshi/bubblegum'
 Bundle 'nginx.vim'
 " Git diff in the sign collumn
 Bundle 'airblade/vim-gitgutter'
+" Syntax highlighting for ansible
+Bundle 'chase/vim-ansible-yaml'
 " Code completion
 Bundle 'Valloric/YouCompleteMe'
 " Set indentation rule per filetype
