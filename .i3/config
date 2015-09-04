@@ -99,20 +99,20 @@ bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+ ; notify-send $(amix
 bindsym XF86AudioMute exec $(exec amixer get Master | grep off > /dev/null && amixer -q set Master unmute) || amixer -q set Master mute
 
 # workspace name
-workspace "1:term" output LVDS1
-workspace "2:ff" output LVDS1
+workspace "1:ff" output LVDS1
+workspace "2:term" output LVDS1
 workspace "3:misc" output LVDS1
 workspace "4:misc" output LVDS1
 
 # switch to workspace
-bindsym $mod+1 workspace 1:term
-bindsym $mod+2 workspace 2:ff
+bindsym $mod+1 workspace 1:ff
+bindsym $mod+2 workspace 2:term
 bindsym $mod+3 workspace 3:misc
 bindsym $mod+4 workspace 4:misc
 
 # move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace 1:term
-bindsym $mod+Ctrl+2 move container to workspace 2:ff
+bindsym $mod+Ctrl+1 move container to workspace 1:ff
+bindsym $mod+Ctrl+2 move container to workspace 2:term
 bindsym $mod+Ctrl+3 move container to workspace 3:misc
 bindsym $mod+Ctrl+4 move container to workspace 4:misc
 
