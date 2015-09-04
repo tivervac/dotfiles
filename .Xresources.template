@@ -40,7 +40,7 @@ URxvt.internalBorder: 3
 
 ! Fonts
 URxvt*font: xft:Inconsolata:size=8
-URxvt*letterSpace: -2
+URxvt*letterSpace: $[size]
 
 ! Perl extensions: URLs
 URxvt.perl-ext-common: matcher,clipboard,font-size

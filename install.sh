@@ -72,7 +72,7 @@ function setup_i3() {
     cp -R "$SRC/.wallpaper" "$HOME"
     ln -sfn "$SRC/.i3" "$HOME"
     ln -sfn "$SRC/.xinitrc" "$HOME"
-    ln -sfn "$SRC/.Xresources" "$HOME"
+    cp  "$SRC/.Xresources.template" "$HOME/.Xresources"
     sudo cp "$SRC/clipboard" /usr/lib/urxvt/perl/clipboard
     sudo cp "$SRC/font-size" /usr/lib/urxvt/perl/font-size
 }
@@ -89,10 +89,12 @@ function setup_gui() {
 
 function setup_desktop() {
     echo "Setting up desktop specific files..."
+    sed -i 's/$\[size\]/-1/' "$HOME/.Xresources"
 }
 
 function setup_latop() {
     echo "Setting up laptop specific files..."
+    sed -i 's/$\[size\]/-2/' "$HOME/.Xresources"
 }
 
 for OPT in $*; do
