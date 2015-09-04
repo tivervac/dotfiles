@@ -37,6 +37,8 @@ bindsym $mod+Ctrl+q kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym KP_Begin floating toggle
+
 # change focus
 bindsym $mod+n focus left
 bindsym $mod+e focus down

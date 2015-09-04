@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -ue
-USAGE="Usage: "$0": --[all|arch|bb|gui|i3|nogui|vim|ntp]"
-if [ $# == 0 ]; then
+USAGE="Usage: "$0": --[desktop|laptop] --[all|arch|bb|gui|i3|nogui|vim|ntp]"
+if [ $# -ne 2 ]; then
     echo $USAGE
     exit 1;
 fi
@@ -87,6 +87,14 @@ function setup_gui() {
     cp "$SRC/.compton.conf" "$HOME"
 }
 
+function setup_desktop() {
+    echo "Setting up desktop specific files..."
+}
+
+function setup_latop() {
+    echo "Setting up laptop specific files..."
+}
+
 for OPT in $*; do
     case "$OPT" in
         --all)          setup_gui
@@ -103,6 +111,8 @@ for OPT in $*; do
         --nogui)        setup_non_gui;;
         --vim)          setup_vim;;
         --ntp)          setup_ntp;;
+        --desktop)      setup_desktop;;
+        --laptop)       setup_laptop;;
         *)              echo $USAGE
                         exit 2;;
     esac
