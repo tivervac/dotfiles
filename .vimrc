@@ -75,7 +75,7 @@ colorscheme bubblegum
 " Wrapping {{{
 " Don't wrap lines
 set nowrap
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 " Insert spaces instead of tabs
