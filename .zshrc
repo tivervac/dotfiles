@@ -34,7 +34,7 @@ source ~/.zsh/functions/*
 export PROMPT='[%T]%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
 export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export PATH=".:/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export EDITOR=vim
 
 ssh-add 2> /dev/null
