@@ -1,22 +1,24 @@
-" Bundles {{{
+" Plugins {{{
 set nocompatible
 " filetype has to be off for Vundle
 filetype off
 " Set our RunTime Path
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
 " Custom colortheme
-Bundle 'FlashYoshi/bubblegum'
-" nginx highlighting
-Bundle 'nginx.vim'
+Plugin 'FlashYoshi/bubblegum'
+" Nginx highlighting
+Plugin 'nginx.vim'
 " Git diff in the sign collumn
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 " Syntax highlighting for ansible
-Bundle 'chase/vim-ansible-yaml'
+Plugin 'chase/vim-ansible-yaml'
 " Code completion
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+" LaTeX tools
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 " Set indentation rule per filetype
 filetype plugin indent on
 " }}}
@@ -151,12 +153,12 @@ augroup ft_markdown
 
   au BufNewFile,BufRead *.m*down setlocal filetype=markdown
   au BufNewFile,BufRead *.md setlocal filetype=markdown
-  au Filetype markdown call s:setupWrapping()
 
   " Use <localleader>1/2/3 to add headings.
   au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
   au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
   au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
+  au Filetype tex setlocal spell
 augroup END
 " }}}
 " C# {{{
@@ -189,6 +191,8 @@ augroup END
 " Latex {{{
 augroup ft_latex
   au!
+
+  let g:LatexBox_Folding = 1
 
   au Filetype tex call s:setupWrapping()
   au Filetype tex setlocal spell
