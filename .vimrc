@@ -158,7 +158,7 @@ augroup ft_markdown
   au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
   au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
   au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
-  au Filetype tex setlocal spell
+  au Filetype markdown setlocal spell
 augroup END
 " }}}
 " C# {{{
@@ -194,7 +194,6 @@ augroup ft_latex
 
   let g:LatexBox_Folding = 1
 
-  au Filetype tex call s:setupWrapping()
   au Filetype tex setlocal spell
 
 augroup END
