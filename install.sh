@@ -90,6 +90,8 @@ function setup_gui() {
     sudo cp "$SRC/xorg.conf" /etc/X11/
     # Configure compton
     cp "$SRC/.compton.conf" "$HOME"
+    # Configure dunst
+    ln -sfn "$SRC/.config/dunst" "$HOME/.config/dunst"
 }
 
 function setup_desktop() {
