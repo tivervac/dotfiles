@@ -34,6 +34,7 @@ source ~/.zsh/functions/*
 export PROMPT='[%T]%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
 export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"
 export PATH="/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export EDITOR=vim
 
@@ -54,3 +55,5 @@ alias targz="tar -xvzf"
 alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
 alias cm="setxkbmap us -variant colemak"
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java org.antlr.v4.runtime.misc.TestRig'
