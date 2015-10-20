@@ -58,6 +58,7 @@ function setup_non_gui() {
     ln -sfn "$SRC/.zsh" "$HOME"
     ln -sfn "$SRC/.config/htop" "$HOME/.config/"
     ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
+    sudo cp "$SRC/cm.desktop" "/usr/share/applications"
     setup_vim
 }
 

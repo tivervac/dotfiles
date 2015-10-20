@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=cm
+GenericName=Colemak
+Comment=Colemak keyboard layout
+Exec=setxkbmap us -variant colemak
+Type=Application
+Categories=Utility;
