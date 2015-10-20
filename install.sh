@@ -18,6 +18,10 @@ function setup_arch() {
     sudo cp pacman.conf /etc/
 }
 
+function setup_gradle() {
+    ln -sfn "$SRC/.gradle" "$HOME"
+}
+
 function setup_ntp() {
     sudo cp ntp.conf /etc/
     sudo systemctl enable ntpd.service
@@ -105,7 +109,7 @@ function setup_desktop() {
     sed -i '/$\[battery\]/ {d}' "$HOME/.i3/i3status.conf"
 }
 
-function setup_latop() {
+function setup_laptop() {
     echo "Setting up laptop specific files..."
     sed -i 's/$\[size\]/-2/' "$HOME/.Xresources"
     sed -i 's/$\[size\]/8/' "$HOME/.i3/config"
@@ -122,10 +126,12 @@ for OPT in $*; do
                         setup_arch
                         setup_bumblebee
                         setup_ntp
+                        setup_gradle
                         setup_ssh_agent;;
         --arch)         setup_arch;;
         --bb)           setup_bumblee;;
         --gui)          setup_gui;;
+        --gradle)       setup_gradle;;
         --i3)           setup_i3;;
         --ssh-agent)    setup_ssh_agent;;
         --nogui)        setup_non_gui;;
