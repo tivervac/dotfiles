@@ -56,5 +56,6 @@ alias targz="tar -xvzf"
 alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
 alias cm="setxkbmap us -variant colemak"
+alias qw="setxkbmap us"
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'

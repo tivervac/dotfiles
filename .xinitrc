@@ -20,5 +20,6 @@ xset b 0
 
 urxvtd -q -f -o
 
+setxkbmap us -variant colemak
 feh --bg-scale ~/.wallpaper/totoro.png
 exec i3
