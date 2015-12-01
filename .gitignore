@@ -2,3 +2,6 @@
 */ranger/bookmarks
 */ranger/tagged
 *.target.wants
+.gradle/native
+.gradle/caches
+.gradle/daemon

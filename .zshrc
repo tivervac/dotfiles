@@ -36,7 +36,8 @@ export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export GRADLE_HOME="/usr/share/java/gradle"
-export PATH="/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"
+export PATH="/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$GRADLE_HOME/bin:$PATH"
 export EDITOR=vim
 
 ssh-add 2> /dev/null
@@ -56,3 +57,6 @@ alias targz="tar -xvzf"
 alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
 alias cm="setxkbmap us -variant colemak"
+alias qw="setxkbmap us"
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java org.antlr.v4.runtime.misc.TestRig'
