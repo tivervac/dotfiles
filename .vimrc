@@ -164,12 +164,15 @@ augroup END
 " C# {{{
 augroup c_sharp
   au!
+  au BufNewFile,BufRead *.cs setlocal filetype=cs
   au Filetype cs setlocal ts=4 sw=4 sts=4
 augroup END
 " }}}
 " C {{{
 augroup c_lang
   au!
+  au BufNewFile,BufRead *.c(pp)? setlocal filetype=c
+  au BufNewFile,BufRead *.h setlocal filetype=c
   au Filetype cpp setlocal ts=4 sw=4 sts=4
   au Filetype c setlocal ts=4 sw=4 sts=4
 augroup END
@@ -177,6 +180,7 @@ augroup END
 " Haskell {{{
 augroup haskell
   au!
+  au BufNewFile,BufRead *.l?hs setlocal filetype=haskell
   au Filetype haskell setlocal ts=4 sw=4 sts=4
   au FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
@@ -184,6 +188,7 @@ augroup END
 " Java {{{
 augroup java
   au!
+  au BufNewFile,BufRead *.java setlocal filetype=java
   au Filetype java setlocal ts=4 sw=4 sts=4
 
 augroup END
@@ -192,6 +197,7 @@ augroup END
 augroup ft_latex
   au!
 
+  au BufNewFile,BufRead *.tex setlocal filetype=tex
   let g:LatexBox_Folding = 1
 
   au Filetype tex setlocal spell
@@ -202,6 +208,8 @@ augroup END
 augroup ft_python
   au!
 
+  au BufNewFile,BufRead *.py setlocal filetype=python
+
   au FileType python setlocal ts=4 sw=4 sts=4
 
 augroup END
@@ -210,6 +218,7 @@ augroup END
 augroup ft_ruby
   au!
 
+  au BufNewFile,BufRead *.rb setlocal filetype=ruby
   au FileType ruby call s:setupWrapping()
   au FileType ruby setlocal ts=2 sts=2 sw=2
 
