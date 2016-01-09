@@ -10,7 +10,7 @@ fi
 SRC=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo "Setting permissions..."
-sudo chmod -R 700 "$SRC"
+chmod -R 700 "$SRC"
 
 function setup_arch() {
     echo "Setting up arch..."
@@ -56,6 +56,7 @@ function setup_non_gui() {
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
+    mkdir "$HOME/.config"
     ln -sfn "$SRC/.config/htop" "$HOME/.config/"
     ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
     setup_vim
