@@ -5,6 +5,7 @@ set -e
 
 sshhost="flesje"
 fles="http://flashyoshi.me"
+port="7070"
 
 # Find ssh username
 user=$(
@@ -19,9 +20,9 @@ user=$(
 
 file="$(mktemp XXXXXX.png)"
 escrotum $* "$file"
-chmod 755 $file
+chmod 644 $file
 scp -p $file $sshhost:~/images/
 rm "$file"
-url="$fles:8080/~$user/images/$file"
+url="$fles:$port/~$user/$file"
 notify-send "Screenshot uploaded to $url"
 echo "$url" | xsel -bi
