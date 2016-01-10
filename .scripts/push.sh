@@ -4,7 +4,7 @@
 set -e
 
 sshhost="flesje"
-fles="http://flashyoshi.me"
+fles="http://t2-wan.be"
 port="7070"
 
 # Find ssh username
