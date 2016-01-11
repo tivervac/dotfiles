@@ -5,7 +5,6 @@ set -e
 
 sshhost="flesje"
 fles="http://t2-wan.be"
-port="7070"
 
 # Find ssh username
 user=$(
@@ -23,6 +22,6 @@ escrotum $* "$file"
 chmod 644 $file
 scp -p $file $sshhost:~/images/
 rm "$file"
-url="$fles:$port/~$user/$file"
+url="$fles/~$user/$file"
 notify-send "Screenshot uploaded to $url"
 echo "$url" | xsel -bi
