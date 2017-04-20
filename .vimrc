@@ -9,14 +9,13 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 " Custom colortheme
 Plugin 'FlashYoshi/bubblegum'
+Plugin 'vhda/verilog_systemverilog.vim'
 " Nginx highlighting
 Plugin 'nginx.vim'
 " Git diff in the sign collumn
 Plugin 'airblade/vim-gitgutter'
 " Syntax highlighting for ansible
 Plugin 'chase/vim-ansible-yaml'
-" Code completion
-Plugin 'Valloric/YouCompleteMe'
 " LaTeX tools
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 " Set indentation rule per filetype
@@ -147,7 +146,6 @@ set foldtext=MyFoldText()
 " }}}
 " Filetype specific {{{
 " Markdown {{{
-
 augroup ft_markdown
   au!
 
@@ -190,7 +188,6 @@ augroup java
   au!
   au BufNewFile,BufRead *.java setlocal filetype=java
   au Filetype java setlocal ts=4 sw=4 sts=4
-
 augroup END
 " }}}
 " Latex {{{
@@ -201,7 +198,6 @@ augroup ft_latex
   let g:LatexBox_Folding = 1
 
   au Filetype tex setlocal spell
-
 augroup END
 " }}}
 " Python {{{
@@ -211,7 +207,6 @@ augroup ft_python
   au BufNewFile,BufRead *.py setlocal filetype=python
 
   au FileType python setlocal ts=4 sw=4 sts=4
-
 augroup END
 " }}}
 " Ruby {{{
@@ -221,7 +216,6 @@ augroup ft_ruby
   au BufNewFile,BufRead *.rb setlocal filetype=ruby
   au FileType ruby call s:setupWrapping()
   au FileType ruby setlocal ts=2 sts=2 sw=2
-
 augroup END
 " }}}
 " Nginx {{{
@@ -229,7 +223,14 @@ augroup ft_nginx
   au!
 
   au FileType nginx setlocal ts=4 sts=4 sw=4
+augroup END
+" }}}
+" Gitconfig {{{
+augroup ft_gitconfig
+  au!
 
+  au BufNewFile,BufRead *.gitconfig setlocal filetype=gitconfig
+  au FileType gitconfig setlocal ts=2 sts=2 sw=2
 augroup END
 " }}}
 " }}}
