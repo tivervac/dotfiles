@@ -29,37 +29,49 @@ key[Delete]=${terminfo[kdch1]}
 
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
-source ~/.scripts/mancolor.sh
 source ~/.zsh/functions/*
-export PROMPT='[%T]%{$fg_bold[green]%} %2~ %{$reset_color%}$(git_super_status)$ '
+export PROMPT='[%T] %{$fg_bold[green]%}%2~%{$reset_color%} $(git_super_status)$ '
 export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export JAVA_HOME="/usr/lib/jvm/default"
-export GRADLE_HOME="/usr/share/java/gradle"
-export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"
-export PATH="/usr/local/bin/:/usr/local/sbin/:$HOME/.cabal/bin/:$(ruby -e 'print Gem.user_dir')/bin:$GRADLE_HOME/bin:$PATH"
+#export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=vim
+export PERSONAL_SCRIPTS=~/.scripts
+export PATH=$PATH:$PERSONAL_SCRIPTS
+source "$HOME/.profile"
 
-ssh-add 2> /dev/null
+#ssh-add 2> /dev/null
 
 alias ls='ls --color'
 alias l='ls -Alhk'
 alias open="xdg-open"
 # git but with some extra features
-alias g="hub"
-alias install="pacaur -S"
-alias remove="pacaur -Rsn"
-alias upgrade="pacaur -Syu"
-alias update="pacaur -Sy"
+alias g="git"
+alias install="sudo apt install"
+alias remove="sudo apt-get remove"
+alias upgrade="sudo apt-get upgrade"
+alias dupgrade="sudo apt-get dist-upgrade"
+alias update="sudo apt-get update"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias targz="tar -xvzf"
+alias tarbz2="tar -xvjf"
 alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
 alias cm="setxkbmap us -variant colemak"
 alias qw="setxkbmap us"
-alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
-alias grun='java org.antlr.v4.runtime.misc.TestRig'
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+function rmremotebranch () {
+    read "?Are you sure you want to remove the REMOTE branch: $fg_bold[red]"$*"$reset_color? [yY]"
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        git push origin :$*
+        echo "Removed remote branch "$*
+    else
+        echo "Canceled removal..."
+    fi
+}
 
 function o () {
     open "$*" &|
