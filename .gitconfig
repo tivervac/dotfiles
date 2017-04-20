@@ -6,17 +6,21 @@
 [core]
   editor = vim
 [alias]
-  co = checkout
   unstage = reset HEAD --
-        l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        c = commit
-        pu = pull
-        p = push
-        s = status
-        d = diff
-        a = add -A
-        ch = checkout
+  l   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  c   = commit
+  pu  = pull
+  pur = pull -- rebase
+  r   = rebase
+  p   = push
+  s   = status
+  d   = diff
+  a   = add -A
+  ch  = checkout
+  b   = branch
+  bm  = branch --merged
+  rpr = remote prune origin
 [credential]
-    helper = cache --timeout=3600
+  helper = cache --timeout=3600
 [push]
-    default = current
+  default = current
