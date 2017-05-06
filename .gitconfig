@@ -10,7 +10,7 @@
   l   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   c   = commit
   pu  = pull
-  pur = pull -- rebase
+  pur = pull --rebase
   r   = rebase
   p   = push
   s   = status
