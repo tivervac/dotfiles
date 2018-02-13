@@ -23,6 +23,10 @@ typeset -A key
 key[Home]=${terminfo[khome]}
 key[End]=${terminfo[kend]}
 key[Delete]=${terminfo[kdch1]}
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[7~' beginning-of-line
+bindkey '^[[8~' end-of-line
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Delete]}"   ]]  && bindkey  "${key[Delete]}"   delete-char
@@ -30,12 +34,15 @@ key[Delete]=${terminfo[kdch1]}
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
 source ~/.zsh/functions/*
+
 export PROMPT='[%T] %{$fg_bold[green]%}%2~%{$reset_color%} $(git_super_status)$ '
 export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
 #export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=vim
 export PERSONAL_SCRIPTS=~/.scripts
 export PATH=$PATH:$PERSONAL_SCRIPTS
+export CLASSPATH=".:/usr/local/lib/antlr-3.5.2-complete.jar:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
+export _JAVA_AWT_WM_NONREPARENTING=1
 source "$HOME/.profile"
 
 #ssh-add 2> /dev/null
@@ -58,6 +65,14 @@ alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
 alias cm="setxkbmap us -variant colemak"
 alias qw="setxkbmap us"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
+alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
+alias grun='java org.antlr.v4.gui.TestRig'
 if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
@@ -76,3 +91,14 @@ function rmremotebranch () {
 function o () {
     open "$*" &|
 }
+
+function proxy () {
+    /usr/local/bin/sshuttle -r $1 --dns 0/0
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# added by travis gem
+[ -f /home/titouanvervack/.travis/travis.sh ] && source /home/titouanvervack/.travis/travis.sh

@@ -1,16 +1,17 @@
 [user]
-  name = Titouan Vervack
-  email = tivervac@gmail.com
+	name = Titouan Vervack
+	email = titouan.vervack@sigasi.com
 [color]
   ui = true
 [core]
   editor = vim
 [alias]
   unstage = reset HEAD --
+  pushf = push --force-with-lease
   l   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   c   = commit
   pu  = pull
-  pur = pull -- rebase
+  pur = pull --rebase
   r   = rebase
   p   = push
   s   = status

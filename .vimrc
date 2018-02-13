@@ -18,6 +18,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'chase/vim-ansible-yaml'
 " LaTeX tools
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
+" Jenkinsfile syntax
+Plugin 'rdolgushin/groovy.vim'
 " Set indentation rule per filetype
 filetype plugin indent on
 " }}}
@@ -225,6 +227,12 @@ augroup ft_nginx
   au FileType nginx setlocal ts=4 sts=4 sw=4
 augroup END
 " }}}
+" Jenkins {{{
+augroup ft_jenkins
+  au!
+
+  au FileType jenkins setlocal ts=2 sts=2 sw=2
+augroup END
 " Gitconfig {{{
 augroup ft_gitconfig
   au!
