@@ -56,7 +56,7 @@ function setup_non_gui() {
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
-    mkdir "$HOME/.config"
+    mkdir -p "$HOME/.config"
     ln -sfn "$SRC/.config/htop" "$HOME/.config/"
     ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
     setup_vim
@@ -75,9 +75,7 @@ function setup_ssh_agent() {
 function setup_i3() {
     echo "Setting up i3..."
     cp -R "$SRC/.wallpaper" "$HOME"
-    if [[ ! -d "$HOME/.i3" ]]; then
-        mkdir "$SRC/.i3"
-    fi
+    mkdir -p "$HOME/.i3"
 
     cp "$SRC/.i3/config.template" "$HOME/.i3/config"
     cp "$SRC/.i3/i3status.conf.template" "$HOME/.i3/i3status.conf"
