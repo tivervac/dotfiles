@@ -43,7 +43,6 @@ export PERSONAL_SCRIPTS=~/.scripts
 export PATH=$PATH:$PERSONAL_SCRIPTS
 export CLASSPATH=".:/usr/local/lib/antlr-3.5.2-complete.jar:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
-source "$HOME/.profile"
 
 #ssh-add 2> /dev/null
 
@@ -52,11 +51,10 @@ alias l='ls -Alhk'
 alias open="xdg-open"
 # git but with some extra features
 alias g="git"
-alias install="sudo apt install"
-alias remove="sudo apt-get remove"
-alias upgrade="sudo apt-get upgrade"
-alias dupgrade="sudo apt-get dist-upgrade"
-alias update="sudo apt-get update"
+alias install="pacaur -S"
+alias remove="pacaur -Rsn"
+alias upgrade="pacaur -Syu"
+alias update="pacaur -Sy"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias targz="tar -xvzf"
@@ -70,6 +68,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java org.antlr.v4.gui.TestRig'
