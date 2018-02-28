@@ -25,3 +25,5 @@
   helper = cache --timeout=3600
 [push]
   default = current
+[gui]
+	spellingdictionary = none
