@@ -31,6 +31,9 @@ bindkey '^[[8~' end-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Delete]}"   ]]  && bindkey  "${key[Delete]}"   delete-char
 
+# Disable Ctrl+S in terminal
+stty -ixon
+
 setopt prompt_subst
 source ~/.zsh/git-prompt/zshrc.sh
 source ~/.zsh/functions/*
@@ -42,6 +45,7 @@ export EDITOR=vim
 export PERSONAL_SCRIPTS=~/.scripts
 export PATH=$PATH:$PERSONAL_SCRIPTS
 export CLASSPATH=".:/usr/local/lib/antlr-3.5.2-complete.jar:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
+export CLASSPATH="/usr/lib/jvm/default-runtime/lib/tools.jar:$CLASSPATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 #ssh-add 2> /dev/null
@@ -51,12 +55,12 @@ alias l='ls -Alhk'
 alias open="xdg-open"
 # git but with some extra features
 alias g="git"
-alias install="pacaur -S"
-alias remove="pacaur -Rsn"
-alias upgrade="pacaur -Syu"
-alias update="pacaur -Sy"
+alias install="aurman -S"
+alias remove="aurman -Rsn"
+alias upgrade="aurman -Syu"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
+alias untar="tar -xvf"
 alias targz="tar -xvzf"
 alias tarbz2="tar -xvjf"
 alias diskusage="df -h"
@@ -68,10 +72,12 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias sgs="cd /home/titouanvervack/sigasi-dev/git/sigasi"
 alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java org.antlr.v4.gui.TestRig'
+alias vivado="/home/titouanvervack/Xilinx//Vivado/2017.4/bin/vivado"
 if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi

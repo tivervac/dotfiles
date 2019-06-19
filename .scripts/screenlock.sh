@@ -18,15 +18,15 @@ escrotum $TMPBG && convert $TMPBG -scale 10% -scale 1000% -draw "fill black fill
 # Lock screen displaying this image.
 i3lock \
     -i $TMPBG \
-    --timepos="x-90:h-ch-20" \
     --datepos="tx+24:ty+25" \
+    --timepos="x+110:h-120" \
     --clock --datestr "Type password to unlock..." \
     --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
     --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
     --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
     --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+290:h-120" \
-    --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
-    --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
+    --radius=20 --ring-width=3 --veriftext="Authenticating..." --wrongtext="Access denied!" \
+    --verifcolor=ffffffff --wrongcolor=d23c3dff --timecolor=ffffffff --datecolor=ffffffff
 
 rm $TMPBG
 

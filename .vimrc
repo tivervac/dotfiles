@@ -50,6 +50,20 @@ set backspace=indent,eol,start
 set modelines=0
 " Always show the statusbar
 set laststatus=2
+
+set statusline=%t       "tail of the filename
+set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}]\  "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %o      "byte offset
+set statusline+=\ %P    "percent through file
+
 " Show executing command on last line
 " i.e. no. of selected lines in Visual mode
 set showcmd
@@ -147,6 +161,15 @@ endfunction
 set foldtext=MyFoldText()
 " }}}
 " Filetype specific {{{
+" Git {{{
+augroup ft_git_commit
+  au!
+  syntax on
+  autocmd FileType gitcommit set textwidth=72
+  autocmd FileType gitcommit set colorcolumn=73
+  autocmd FileType gitcommit set colorcolumn+=51
+augroup END
+" }}}
 " Markdown {{{
 augroup ft_markdown
   au!
@@ -233,6 +256,12 @@ augroup ft_jenkins
 
   au FileType jenkins setlocal ts=2 sts=2 sw=2
 augroup END
+" JFlex {{{
+augroup filetype
+  au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
+augroup END
+au Syntax jflex    so ~/.vim/syntax/jflex.vim
+" }}}
 " Gitconfig {{{
 augroup ft_gitconfig
   au!

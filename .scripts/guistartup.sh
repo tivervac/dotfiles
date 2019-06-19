@@ -14,11 +14,14 @@ if [ -f ~/.Xresources ]; then
     xrdb -merge ~/.Xresources
 fi
 
+export XDG_CURRENT_DESKTOP=Budgie:GNOME
+exec budgie-desktop
+#exec i3
 # Put beep volume to zero, don't disable to allow for
 # visual bleep
 xset b 0
 
-urxvtd -q -f -o
+urxvtd -f -o
 
-feh --bg-scale ~/.wallpaper/Sigasi.png
+#feh --bg-scale ~/.wallpaper/Sigasi.png
 numlockx on

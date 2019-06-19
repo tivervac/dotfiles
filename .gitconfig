@@ -8,12 +8,14 @@
 [alias]
   unstage = reset HEAD --
   pushf = push --force-with-lease
+  mergeff = merge --ff-only
   l   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   c   = commit
   pu  = pull
   pur = pull --rebase
   r   = rebase
   p   = push
+  rekt = status
   s   = status
   d   = diff
   a   = add -A
@@ -21,9 +23,15 @@
   b   = branch
   bm  = branch --merged
   rpr = remote prune origin
+  f   = fetch --all
 [credential]
   helper = cache --timeout=3600
 [push]
   default = current
 [gui]
 	spellingdictionary = none
+	commitmsgwidth = 72
+[protocol]
+	version = 2
+[gpg]
+	program = gpg2

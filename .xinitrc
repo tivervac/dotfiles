@@ -1,3 +1,3 @@
 #!/bin/sh
 ~/.scripts/guistartup.sh
-exec i3
+#exec i3
