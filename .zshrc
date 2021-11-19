@@ -34,7 +34,8 @@ export PROMPT='[%T] %{$fg_bold[green]%}%2~%{$reset_color%} $(git_super_status)$ 
 export RPROMPT='%{$fg_bold[red]%}|%m|%{$reset_color%}'
 export EDITOR=vim
 export PERSONAL_SCRIPTS=~/.scripts
-export PATH=$PATH:$PERSONAL_SCRIPTS
+export JAVA_HOME="/home/t21/jdk/graal11"
+export PATH=$PATH:$PERSONAL_SCRIPTS:$JAVA_HOME/bin/
 export CLASSPATH=".:/usr/local/lib/antlr-3.5.2-complete.jar:/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH"
 export CLASSPATH="/usr/lib/jvm/default-runtime/lib/tools.jar:$CLASSPATH"
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -43,9 +44,9 @@ alias ls='ls --color'
 alias l='ls -Alhk'
 alias open="xdg-open"
 alias g="git"
-alias install="sudo yum install"
-alias remove="sudo yum remove"
-alias upgrade="sudo yum update"
+alias install="sudo dnf install"
+alias remove="sudo dnf remove"
+alias upgrade="sudo snap refresh; sudo dnf update; npm update -g; cargo install-update -a"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias untar="tar -xvf"
@@ -61,11 +62,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias sgs="cd /home/t21/sigasi-dev/git/sigasi"
+alias sgdos="cd /home/t21/sigasi-dos/git/sigasi"
 alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
-alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.7-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
-alias grun='java org.antlr.v4.gui.TestRig'
-alias vivado="/home/titouanvervack/Xilinx/Vivado/2017.4/bin/vivado"
 
 function rmremotebranch () {
     read "?Are you sure you want to remove the REMOTE branch: $fg_bold[red]"$*"$reset_color? [yY]"
@@ -86,3 +85,10 @@ function proxy () {
     /usr/local/bin/sshuttle -r $1 --dns 0/0
 }
 
+eval "$(starship init zsh)"
+
+source ~/.scripts/mancolor.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
