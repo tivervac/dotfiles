@@ -5,6 +5,9 @@
   ui = true
 [core]
   editor = vim
+  hooksPath = ~/.config/git/hooks/
+[diff]
+  tool = vscode
 [alias]
   unstage = reset HEAD --
   pushf = push --force-with-lease
