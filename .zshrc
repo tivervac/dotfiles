@@ -78,12 +78,10 @@ alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
 alias sgs="cd /home/t21/sigasi-dev/git/sigasi"
 alias sgdos="cd /home/t21/sigasi-dos/git/sigasi"
-alias rm="rm -Iv"
-alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 alias sgtres="cd /home/t21/sigasi-tres/git/sigasi"
-alias notes="cd /home/t21/git/knowledge-base"
 alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
+alias notes="cd /home/t21/git/knowledge-base"
 alias lg="lazygit"
 
 function rmremotebranch () {
@@ -105,12 +103,15 @@ function proxy () {
     /usr/local/bin/sshuttle -r $1 --dns 0/0
 }
 
-eval "$(starship init zsh)"
-
 source ~/.scripts/mancolor.sh
+source /home/t21/.config/broot/launcher/bash/br
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
