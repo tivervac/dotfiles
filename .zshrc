@@ -36,7 +36,7 @@ source ~/.zsh/functions/*
 
 export EDITOR=vim
 export PERSONAL_SCRIPTS=~/.scripts
-export JAVA_HOME="/home/t21/jdk/graal11"
+export JAVA_HOME="/home/t21/.sdkman/candidates/java/current"
 export PATH=$PATH:$PERSONAL_SCRIPTS:$JAVA_HOME/bin/
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH=$PATH:$NPM_PACKAGES
@@ -83,6 +83,7 @@ alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
 alias notes="cd /home/t21/git/knowledge-base"
 alias lg="lazygit"
+alias dockerlogin="aws ecr get-login-password | docker login --username AWS --password-stdin 906120494814.dkr.ecr.eu-west-1.amazonaws.com"
 
 function rmremotebranch () {
     read "?Are you sure you want to remove the REMOTE branch: $fg_bold[red]"$*"$reset_color? [yY]"
