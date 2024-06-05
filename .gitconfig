@@ -23,6 +23,7 @@
   d   = diff
   a   = add -A
   ch  = checkout
+  cp  = cherry-pick
   b   = branch
   bm  = branch --merged
   rpr = remote prune origin
