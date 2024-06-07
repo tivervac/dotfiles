@@ -43,13 +43,13 @@ function setup_vim() {
 
 function setup_non_gui() {
     echo "Setting up non GUI elements..."
-    ln -sfn "$SRC/.scripts" "$HOME"
+    mkdir -p "$HOME/.local/bin"
+    ln -sfn "$SRC/.local/bin/" "$HOME/.local/bin/"
     ln -sfn "$SRC/.gitconfig" "$HOME"
     ln -sfn "$SRC/.zshrc" "$HOME"
     ln -sfn "$SRC/.zsh" "$HOME"
     mkdir -p "$HOME/.config"
-    ln -sfn "$SRC/.config/htop" "$HOME/.config/"
-    ln -sfn "$SRC/.config/ranger" "$HOME/.config/"
+    ln -sfn "$SRC/.config/" "$HOME/.config/"
     setup_vim
 }
 
