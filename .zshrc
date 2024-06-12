@@ -35,12 +35,11 @@ eval "$(starship init zsh)"
 source ~/.zsh/functions/*
 
 export EDITOR=vim
-export PERSONAL_SCRIPTS=~/.scripts
+export PERSONAL_SCRIPTS=~/.local/bin/
 export JAVA_HOME="/home/t21/.sdkman/candidates/java/current"
 export PATH=$PATH:$PERSONAL_SCRIPTS:$JAVA_HOME/bin/
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH=$PATH:$NPM_PACKAGES
-export PATH=$PATH:/home/t21/.local/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -102,7 +101,7 @@ function proxy () {
     /usr/local/bin/sshuttle -r $1 --dns 0/0
 }
 
-source ~/.scripts/mancolor.sh
+source ~/.local/bin/mancolor.sh
 source /home/t21/.config/broot/launcher/bash/br
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

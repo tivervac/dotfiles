@@ -10,7 +10,7 @@
 #Setup: Name it .mancolor.sh, source it in your bashrc/zshrc,
 #       and chmod +x it(it also gets run as a script)
 #       If you name it something else, change this:
-export MANCOLORPATH=$HOME/.scripts/mancolor.sh
+export MANCOLORPATH=$HOME/.local/bin/mancolor.sh
 #If you want it to use just the category(0-9) as the seed change this
 # to 1. Man page of the same category will have the same schemes.
 export USECATEGORY=0
