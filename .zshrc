@@ -37,16 +37,16 @@ source ~/.zsh/functions/*
 
 export EDITOR=vim
 export PERSONAL_SCRIPTS=~/.local/bin/
-export JAVA_HOME="/home/t21/.sdkman/candidates/java/current"
+export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
 export PATH=$PATH:$PERSONAL_SCRIPTS:$JAVA_HOME/bin/
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH=$PATH:$NPM_PACKAGES
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PATH:/home/t21/.m2/smtools-linux-x64/
+export PATH=$PATH:$HOME/.m2/smtools-linux-x64/
 
 export SM_HOST="https://clientauth.one.digicert.com"
-export SM_CLIENT_CERT_FILE="/home/t21/.m2/Sigasi_EV_Code_Signing_Certificate.p12"
+export SM_CLIENT_CERT_FILE="$HOME/.m2/Sigasi_EV_Code_Signing_Certificate.p12"
 
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
@@ -79,12 +79,12 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias .......="cd ../../../../../.."
-alias sgs="cd /home/t21/sigasi-dev/git/sigasi"
-alias sgdos="cd /home/t21/sigasi-dos/git/sigasi"
-alias sgtres="cd /home/t21/sigasi-tres/git/sigasi"
+alias sgs="cd $HOME/sigasi-dev/git/sigasi"
+alias sgdos="cd $HOME/sigasi-dos/git/sigasi"
+alias sgtres="cd $HOME/sigasi-tres/git/sigasi"
 alias rm="rm -Iv"
 alias rmstalebranches="g branch --merged | grep -v master > /tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d < /tmp/merged-branches"
-alias notes="cd /home/t21/git/knowledge-base"
+alias notes="cd $HOME/git/knowledge-base"
 alias lg="lazygit"
 alias dockerlogin="aws ecr get-login-password | docker login --username AWS --password-stdin 906120494814.dkr.ecr.eu-west-1.amazonaws.com"
 
@@ -108,7 +108,7 @@ function proxy () {
 }
 
 source ~/.local/bin/mancolor.sh
-source /home/t21/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
