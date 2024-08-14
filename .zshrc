@@ -22,6 +22,7 @@ autoload colors
 colors
 
 source ~/.profile
+source ~/.zsh/functions/pyautoenv.plugin.zsh
 
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
@@ -42,6 +43,10 @@ export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH=$PATH:$NPM_PACKAGES
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:/home/t21/.m2/smtools-linux-x64/
+
+export SM_HOST="https://clientauth.one.digicert.com"
+export SM_CLIENT_CERT_FILE="/home/t21/.m2/Sigasi_EV_Code_Signing_Certificate.p12"
 
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
@@ -67,6 +72,7 @@ alias targzlistshort="tar --exclude='*/*' -ztvf"
 alias tarbz2="tar -xvjf"
 alias diskusage="df -h"
 alias copypasta="xclip -sel clip <"
+alias ssh="kitten ssh"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
