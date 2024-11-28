@@ -14,9 +14,6 @@
   mergeff = merge --ff-only
   l   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   c   = commit
-  pu  = pull
-  pur = pull --rebase
-  r   = rebase
   p   = push
   rekt = status
   s   = status
@@ -25,9 +22,11 @@
   ch  = checkout
   cp  = cherry-pick
   b   = branch
-  bm  = branch --merged
   rpr = remote prune origin
   f   = fetch --all
+  rom = rebase origin/master
+  lom = l origin/master
+  cp  = cherry-pick
 [credential]
   helper = cache --timeout=3600
 [push]
