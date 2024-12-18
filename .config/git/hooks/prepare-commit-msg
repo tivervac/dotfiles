@@ -3,7 +3,7 @@
 if git remote -v | grep -F 'gitlab.sigasi.com:dev/sigasi.git'; then
     branch=$(git branch --show-current | sed 's/-.*//')
     ref="dev/sigasi#$branch"
-    if [ -n "$branch" ] && ! grep -F "$ref" "$1"; then
+    if echo "$branch" | grep -q "^[0-9]\+$" && [ -n "$branch" ] && ! grep -F "$ref" "$1"; then
         printf '\n%s\n' "$ref" >> "$1"
     fi
 fi
