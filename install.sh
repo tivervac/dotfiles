@@ -28,17 +28,22 @@ function setup_ntp() {
 }
 
 function setup_vim() {
-    echo "Setting up Vundle..."
-    mkdir -p "$HOME/.vim/bundle"
-    if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
-        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-        vim +BundleInstall! +qall
-    fi
-
+    # The .vimrc has to be in place before BundleInstall runs, since that is
+    # where the Plugin list lives.
     echo "Setting up vim environment..."
     ln -sfn "$SRC/.vimrc" "$HOME"
     mkdir -p "$HOME/.vim/tmp/swap"
     mkdir -p "$HOME/.vim/tmp/backup"
+
+    echo "Setting up Vundle..."
+    mkdir -p "$HOME/.vim/bundle"
+    if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    fi
+    # Run unconditionally, not just when Vundle was freshly cloned, so plugins
+    # added to .vimrc later get installed too. Vim returns non-zero when a
+    # plugin fails to clone, which would otherwise trip `set -e`.
+    vim +PluginInstall! +qall || echo "Warning: PluginInstall reported errors"
 }
 
 function setup_non_gui() {

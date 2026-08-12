@@ -3,9 +3,10 @@ set nocompatible
 " filetype has to be off for Vundle
 filetype off
 " Set our RunTime Path
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Plugin 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 " Custom colortheme
 Plugin 'FlashYoshi/bubblegum'
@@ -20,6 +21,7 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 " Jenkinsfile syntax
 Plugin 'rdolgushin/groovy.vim'
+call vundle#end()
 " Set indentation rule per filetype
 filetype plugin indent on
 " }}}
@@ -87,7 +89,9 @@ set scrolloff=8
 set t_Co=256
 " Enable syntax highlighting
 syntax enable
-colorscheme bubblegum
+" silent! so a missing bubblegum (e.g. before BundleInstall has run) doesn't
+" abort loading this vimrc with an E185 prompt
+silent! colorscheme bubblegum
 " }}}
 " Wrapping {{{
 " Don't wrap lines
