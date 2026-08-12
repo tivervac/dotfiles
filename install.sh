@@ -32,16 +32,15 @@ function setup_vim() {
     ln -sfn "$SRC/.vimrc" "$HOME"
     mkdir -p "$HOME/.vim/tmp/swap"
     mkdir -p "$HOME/.vim/tmp/backup"
-    mkdir -p "$HOME/.vim/tmp/undo"
-
     echo "Setting up Vundle..."
     mkdir -p "$HOME/.vim/bundle"
-    if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     fi
-    # Needs the .vimrc in place to know which plugins to install, so always run
-    # this: it also repairs a bundle dir with missing plugins.
-    vim +PluginInstall! +qall
+    # Run unconditionally, not just when Vundle was freshly cloned, so plugins
+    # added to .vimrc later get installed too. Vim returns non-zero when a
+    # plugin fails to clone, which would otherwise trip `set -e`.
+    vim +PluginInstall! +qall || echo "Warning: PluginInstall reported errors"
 }
 
 function setup_non_gui() {
