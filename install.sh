@@ -28,17 +28,20 @@ function setup_ntp() {
 }
 
 function setup_vim() {
-    echo "Setting up Vundle..."
-    mkdir -p "$HOME/.vim/bundle"
-    if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
-        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-        vim +BundleInstall! +qall
-    fi
-
     echo "Setting up vim environment..."
     ln -sfn "$SRC/.vimrc" "$HOME"
     mkdir -p "$HOME/.vim/tmp/swap"
     mkdir -p "$HOME/.vim/tmp/backup"
+    mkdir -p "$HOME/.vim/tmp/undo"
+
+    echo "Setting up Vundle..."
+    mkdir -p "$HOME/.vim/bundle"
+    if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    fi
+    # Needs the .vimrc in place to know which plugins to install, so always run
+    # this: it also repairs a bundle dir with missing plugins.
+    vim +PluginInstall! +qall
 }
 
 function setup_non_gui() {
