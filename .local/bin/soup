@@ -1,0 +1,24 @@
+#!/bin/sh
+amount="$1"
+amount="${amount:=1}"
+printf "Order %sL soup? (yes) " "${amount}"
+read -r answer
+
+if ! [ "${answer}" = "yes" ]; then
+    echo "Okay, I won't order soup"
+    exit 1
+fi
+
+msmtp -t <<HERE
+To: depunt@ateljeevzw.be
+Cc: bedrijvencentrum@depunt.be,soup@sigasi.com
+Subject: ${amount}L soep op factuur voor Sigasi $(date +'%d/%m/%Y')
+From: Titouan Vervack <titouan.vervack@sigasi.com>
+
+Beste Arbed,
+
+Ik zou graag ${amount} liter soep bestellen op factuur van Sigasi.
+
+Met vriendelijke groeten,
+Titouan Vervack
+HERE

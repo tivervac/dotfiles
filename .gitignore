@@ -5,3 +5,13 @@
 .gradle/native
 .gradle/caches
 .gradle/daemon
+/.local/bin/cffi-gen-src
+/.local/bin/blackd
+/.local/bin/claude
+/.local/bin/ansible*
+/.local/bin/black
+/.local/bin/csscapture
+/.local/bin/csscombine
+/.local/bin/cssparse
+/.local/bin/hugo
+/.local/bin/yamllint
