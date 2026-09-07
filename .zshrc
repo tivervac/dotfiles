@@ -28,6 +28,30 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
+# --- Ctrl+arrows / Ctrl+Backspace -------------------------------------------
+# Ctrl+Left / Ctrl+Right: jump a word (xterm/VTE, plus xterm-old and rxvt forms)
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[5D'   backward-word
+bindkey '^[[5C'   forward-word
+bindkey '^[Od'    backward-word
+bindkey '^[Oc'    forward-word
+
+# Ctrl+Up / Ctrl+Down: history search on what's already typed
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[1;5A' up-line-or-beginning-search
+bindkey '^[[1;5B' down-line-or-beginning-search
+bindkey '^[[5A'   up-line-or-beginning-search
+bindkey '^[[5B'   down-line-or-beginning-search
+
+# Ctrl+Backspace (VTE sends ^H) / Ctrl+Delete: kill a word
+bindkey '^H'      backward-kill-word
+bindkey '^[^?'    backward-kill-word
+bindkey '^[[3;5~' kill-word
+# ----------------------------------------------------------------------------
+
 # Disable Ctrl+S in terminal
 stty -ixon
 
