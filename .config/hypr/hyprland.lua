@@ -142,9 +142,7 @@ hl.config({
         -- Center window takes 50% of 5120 = 2560px (one 1440p screen),
         -- leaving 1280px (half a screen) for each side column.
         mfact = 0.5,
-        -- Only go 3-column once there are 2+ side windows...
-        slave_count_for_center_master = 2,
-        -- ...with 2 windows total, fall back to a plain 50/50 left/right split.
+        slave_count_for_center_master = 1,
         center_master_fallback = "left",
         -- New windows join the side columns instead of stealing the center.
         new_status     = "slave",
@@ -213,9 +211,11 @@ hl.bind(mainMod .. " + minus", hl.dsp.layout("mfact -0.025"), { repeating = true
 hl.bind(mainMod .. " + equal", hl.dsp.layout("mfact +0.025"), { repeating = true })
 -- Reset the center column to exactly half the screen
 hl.bind(mainMod .. " + 0", hl.dsp.layout("mfact exact 0.5"))
--- Shuffle windows around the ring without changing focus
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.layout("swapnext"))
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.layout("swapprev"))
+-- Swap the focused window with its neighbour in that direction
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.swap({ direction = "down" }))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
