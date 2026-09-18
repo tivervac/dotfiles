@@ -45,7 +45,8 @@ local menu        = "tofi-drun --drun-launch=true"
 hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/hypr/unlock-keyring.sh")
     hl.exec_cmd("waybar")
-    hl.exec_cmd("firefox")
+    hl.exec_cmd("exec firefox -P Work")
+    hl.exec_cmd("exec firefox -P Personal")
     hl.exec_cmd("exec obsidian", { workspace = "special silent" })
     hl.exec_cmd("rambox")
     hl.exec_cmd("exec signal-desktop", { workspace = "special silent" })
@@ -54,7 +55,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("exec vivaldi --no-first-run --new-window 'https://meet.google.com/landing?authuser=1'", { workspace = "2 silent" })
     -- For Japanese input
     hl.exec_cmd("fcitx5")
-    -- This should autostart, but it doesn't :'(
     hl.exec_cmd("systemctl start hypridle --user")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
