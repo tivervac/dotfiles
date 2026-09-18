@@ -23,7 +23,7 @@
   cp  = cherry-pick
   b   = branch
   rpr = remote prune origin
-  f   = fetch --all
+  f   = fetch --all --tags
   rom = rebase origin/master
   lom = l origin/master
   cp  = cherry-pick
