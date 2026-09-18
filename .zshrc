@@ -27,6 +27,10 @@ source ~/.zsh/functions/pyautoenv.plugin.zsh
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
+bindkey '^[[1;5C' forward-word          # ctrl+right
+bindkey '^[[1;5D' backward-word         # ctrl+left
+bindkey '^H' backward-kill-word         # ctrl+backspace (kitty sends ^H; plain backspace is ^?)
+bindkey '^[[3;5~' kill-word             # ctrl+delete
 
 # --- Ctrl+arrows / Ctrl+Backspace -------------------------------------------
 # Ctrl+Left / Ctrl+Right: jump a word (xterm/VTE, plus xterm-old and rxvt forms)
