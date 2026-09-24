@@ -14,3 +14,9 @@ Read-only actions (inspecting diffs, `glab ... view/list`, fetching MR/issue con
 ## Writing style
 
 Never use the words "load-bearing" or "seam". This applies everywhere: chat replies, code comments, commit messages, and documentation.
+
+## Where the Sigasi code lives
+
+- **Sigasi (SVH)**: `~/sigasi-dev/git/sigasi`. Its infrastructure is set up through `~/git/ansible`, and it talks back (crash reports) to `~/git/sentryfeeder`, which deobfuscates the stack traces and forwards them to Sentry.
+- **aidea**: backend on the `aidea-0.1.0-branch` branch of the Sigasi repo, frontend in `~/git/aidea`.
+- **Sigasi website**, including release notes and the manual: `~/git/sigasi-website`.
