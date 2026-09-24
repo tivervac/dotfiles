@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -ue
-USAGE="Usage: "$0": --[all|arch|bb|gui|i3|no-gui|vim|ntp]"
+USAGE="Usage: "$0": --[all|arch|bb|gui|i3|no-gui|vim|claude|ntp]"
 if [ $# -ne 1 ]; then
     echo $USAGE
     exit 1;
@@ -43,6 +43,14 @@ function setup_vim() {
     vim +PluginInstall! +qall || echo "Warning: PluginInstall reported errors"
 }
 
+function setup_claude() {
+    echo "Setting up Claude Code..."
+    # Only individual files: ~/.claude also holds sessions, caches and credentials.
+    mkdir -p "$HOME/.claude"
+    ln -sfn "$SRC/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+    ln -sfn "$SRC/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
+}
+
 function setup_non_gui() {
     echo "Setting up non GUI elements..."
     mkdir -p "$HOME/.local/bin"
@@ -53,6 +61,7 @@ function setup_non_gui() {
     mkdir -p "$HOME/.config"
     ln -sfn "$SRC/.config/" "$HOME/.config/"
     setup_vim
+    setup_claude
 }
 
 function setup_ssh_agent() {
@@ -106,6 +115,7 @@ for OPT in $*; do
         --ssh-agent)    setup_ssh_agent;;
         --no-gui)        setup_non_gui;;
         --vim)          setup_vim;;
+        --claude)       setup_claude;;
         --ntp)          setup_ntp;;
         *)              echo $USAGE
                         exit 2;;
