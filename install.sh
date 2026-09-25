@@ -49,6 +49,7 @@ function setup_claude() {
     mkdir -p "$HOME/.claude"
     ln -sfn "$SRC/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
     ln -sfn "$SRC/.claude/statusline.sh" "$HOME/.claude/statusline.sh"
+    ln -sfn "$SRC/.claude/settings.json" "$HOME/.claude/settings.json"
 }
 
 function setup_non_gui() {
