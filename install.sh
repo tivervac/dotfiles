@@ -10,7 +10,8 @@ fi
 SRC=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 echo "Setting permissions..."
-chmod -R 700 "$SRC"
+# Owner-only, but only keep the execute bit where it is already set (X).
+chmod -R u=rwX,go= "$SRC"
 
 function setup_arch() {
     echo "Setting up arch..."
